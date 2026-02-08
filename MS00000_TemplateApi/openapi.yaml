@@ -1,0 +1,37 @@
+openapi: 3.0.1
+info:
+  title: MS00000-TemplateApi
+  description: Documentazione API.
+  version: '1.0'
+paths:
+  /api/v1/ConfigApp/GetConfigApp:
+    get:
+      tags:
+        - ConfigApp
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConfigAppDtoListApiResponse'
+components:
+  schemas:
+    ConfigAppDto:
+      type: object
+      properties:
+        Funzione:
+          type: string
+          nullable: true
+        Attivata:
+          type: boolean
+      additionalProperties: false
+    ConfigAppDtoListApiResponse:
+      type: object
+      properties:
+        Response:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConfigAppDto'
+          nullable: true
+      additionalProperties: false

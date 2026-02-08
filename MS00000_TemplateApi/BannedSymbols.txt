@@ -1,0 +1,3 @@
+﻿T:Microsoft.Extensions.Logging.LoggerExtensions
+| Usare IAppLogger.LogInformationCustom/LogDebugCustom/LogWarningCustom/LogErrorCustom
+| Evitare gli extension methods ufficiali su ILogger.

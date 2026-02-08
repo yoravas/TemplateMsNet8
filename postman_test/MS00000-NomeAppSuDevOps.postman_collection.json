@@ -1,0 +1,2579 @@
+{
+	"info": {
+		"_postman_id": "1e72782b-3b6f-4869-8d99-06814ecdf2d9",
+		"name": "MS00716-EliminazioniPeRiac",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "212340"
+	},
+	"item": [
+		{
+			"name": "AnomalieMatCon",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/api/v1/AnomalieMatCon/BySede/010000",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"AnomalieMatCon",
+						"BySede",
+						"010000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Caching",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/api/v1/Caching/EliminazioneCacheRedis/VLRGPP34R45C740J",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Caching",
+						"EliminazioneCacheRedis",
+						"VLRGPP34R45C740J"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DatiAnagraficiEPensioni",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/api/v1/DatiAnagraficiEPensioni/DatiAnagraficiArca_DatiPensioni/VLRGPP34R45C740J",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"DatiAnagraficiEPensioni",
+						"DatiAnagraficiArca_DatiPensioni",
+						"VLRGPP34R45C740J"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DatiAnagraficiEPensioniByChiavePensione",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/api/v1/DatiAnagraficiEPensioni/DatiAnagraficiArca_DatiPensioni_ByChiavePensione/801999810298960",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"DatiAnagraficiEPensioni",
+						"DatiAnagraficiArca_DatiPensioni_ByChiavePensione",
+						"801999810298960"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DinamicLogEventLevel",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/DinamicLogEventLevel/SwitchEventLevel/Error",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"DinamicLogEventLevel",
+						"SwitchEventLevel",
+						"Error"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PropostaEliminazioneDecesso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \r\n    \"DataDecesso\":\"2023-10-10\",\r\n    \"UtenteCorrente\": {\r\n            \"CodiceSede\": \"003900\",\r\n            \"Matricola\":\"AB02924\"\r\n    },\r\n    \"Soggetto\":{\r\n        \"Nome\":\"GUERRINA\",\r\n        \"Cognome\":\"AIO\",\r\n        \"CognomeAcquisito\":\"\",\r\n        \"Sesso\":\"F\",  \r\n        \"DataDiNascita\":\"1943-05-17\",\r\n        \"CodiceArcaAlfanumerico\":\"AIO\",\r\n        \"CodiceArcaNumerico\":394468,\r\n        \"CodiceFiscale\":\"AIOGRN43E57H620L\"\r\n    },\r\n    \"Pensioni\": [\r\n            {\r\n                \"Sede\":\"7400\",\r\n                \"Categoria\": \"001\",\r\n                \"Certificato\" : \"10004266\"\r\n            },\r\n            {\r\n                \"Sede\":\"7400\",\r\n                \"Categoria\": \"003\",\r\n                \"Certificato\" : \"20002958\"\r\n            }\r\n        ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/PropostaEliminazionePerDecesso",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"PropostaEliminazionePerDecesso"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfermaEliminazioneDecesso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"DataDecesso\":\"2023-10-01\",\r\n    \"UtenteCorrente\": {\r\n            \"CodiceSede\": \"003900\",\r\n            \"Matricola\":\"AB02924\"\r\n    },\r\n        \"Soggetto\":{\r\n        \"Nome\":\"GUERRINA\",\r\n        \"Cognome\":\"AIO\",\r\n        \"CognomeAcquisito\":\"\",\r\n        \"Sesso\":\"F\",  \r\n        \"DataDiNascita\":\"1943-05-17\",\r\n        \"CodiceArcaAlfanumerico\":\"AIO\",\r\n        \"CodiceArcaNumerico\":394468,\r\n        \"CodiceFiscale\":\"AIOGRN43E57H620L\"\r\n    },\r\n       \"Pensioni\": [\r\n                {\r\n                    \"Sede\": \"7400\",\r\n                    \"CodiceAzione\": \"06\",\r\n                    \"Categoria\": \"001\",\r\n                    \"Certificato\": \"10004266\",\r\n                    \"Decorrenza\": \"0001-01-01\",\r\n                    \"CentroOperativo\": null\r\n                },\r\n                {\r\n                    \"Sede\": \"7400\",\r\n                    \"CodiceAzione\": \"22\",\r\n                    \"Categoria\": \"003\",\r\n                    \"Certificato\": \"20002958\",\r\n                    \"Decorrenza\": \"2024-02-01\",\r\n                    \"CentroOperativo\": null\r\n                }\r\n       ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/ConfermaEliminazionePerDecesso",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"ConfermaEliminazionePerDecesso"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PropostaEliminazioneNuoveNozze",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"DataEvento\":\"2023-10-01\",\r\n    \"UtenteCorrente\": {\r\n            \"CodiceSede\": \"003900\",\r\n            \"Matricola\":\"AB02924\"\r\n    },\r\n    \"Titolare\":{\r\n    \"Nome\":\"MARIA CATERINA\",\r\n    \"Cognome\":\"PALUMBO\",\r\n    \"CognomeAcquisito\":\"SEVERINO\",\r\n    \"Sesso\":\"F\",  \r\n    \"DataNascita\":\"1928-10-25\",\r\n    \"ComuneNascita\":\"CASTELTERMINI\",\r\n    \"ProvinciaNascita\":\"AG\",\r\n    \"CodiceFiscale\":\"PLMMCT28R65C275F\"\r\n   \r\n    },\r\n     \"PensioniTitolare\": [\r\n        {\r\n            \"Sede\":\"0100\",\r\n            \"Categoria\": \"003\",\r\n            \"Certificato\" : \"00325544\"\r\n        },\r\n          {\r\n            \"Sede\":\"0300\",\r\n            \"Categoria\": \"001\",\r\n            \"Certificato\" : \"10057307\"\r\n        }\r\n    ],\r\n     \"Coniuge\":{\r\n    \"Nome\":\"MICHELE\",\r\n    \"Cognome\":\"MASTROSIMONE\",\r\n    \"CognomeAcquisito\":\"\",\r\n    \"Sesso\":\"M\",  \r\n    \"DataNascita\":\"1936-08-23\",\r\n    \"ComuneNascita\":\"SAN CATALDO\",\r\n    \"ProvinciaNascita\":\"CL\",\r\n    \"CodiceFiscale\":\"MSTMHL36M22H792K\"\r\n \r\n    },\r\n    \"PensioniConiuge\": [\r\n        {\r\n            \"Sede\":\"0100\",\r\n            \"Categoria\": \"001\",\r\n            \"Certificato\" : \"10041404\"\r\n        },\r\n        {\r\n            \"Sede\":\"0100\",\r\n            \"Categoria\": \"044\",\r\n            \"Certificato\" : \"07079191\"\r\n       \r\n        }\r\n    ]\r\n \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/PropostaEliminazionePerNuovaUnione",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"PropostaEliminazionePerNuovaUnione"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfermaEliminazioneNuoveNozze",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"DataEvento\":\"2023-10-01\",\r\n    \"UtenteCorrente\": {\r\n            \"CodiceSede\": \"003900\",\r\n            \"Matricola\":\"AB02924\"\r\n    },\r\n  \"Titolare\": {\r\n            \"Cognome\": \"PALUMBO\",\r\n            \"Nome\": \"MARIA CATERINA\",\r\n            \"CognomeAcquisito\": \"SEVERINO\",\r\n            \"CodiceFiscale\": \"PLMMCT28R65C275F\",\r\n            \"Sesso\": \"F\",\r\n            \"DataNascita\": \"1928-10-25\",\r\n            \"ComuneNascita\": \"CASTELTERMINI\",\r\n            \"ProvinciaNascita\": \"AG\"\r\n           \r\n        },\r\n        \"PensioniTitolare\": [\r\n                {\r\n                    \"Sede\": \"0100\",\r\n                    \"CodiceAzione\": \"22\",\r\n                    \"Categoria\": \"003\",\r\n                    \"Certificato\": \"00325544\",\r\n                    \"Decorrenza\": \"2024-02-01\",\r\n                    \"Importo\": 0\r\n                },\r\n                {\r\n                    \"Sede\": \"0100\",\r\n                    \"CodiceAzione\": \"09\",\r\n                    \"Categoria\": \"003\",\r\n                    \"Certificato\": \"00325544\",\r\n                    \"Decorrenza\": \"0001-01-01\",\r\n                    \"Importo\": 1894699\r\n                }\r\n            ],\r\n        \"Coniuge\": {\r\n            \"Cognome\": \"MASTROSIMONE\",\r\n            \"Nome\": \"MICHELE\",\r\n            \"CognomeAcquisito\": \"\",\r\n            \"CodiceFiscale\": \"MSTMHL36M22H792K\",\r\n            \"Sesso\": \"M\",\r\n            \"DataNascita\": \"1936-08-22\",\r\n            \"ComuneNascita\": \"SAN CATALDO\",\r\n            \"ProvinciaNascita\": \"CL\"\r\n           \r\n        },\r\n        \"PensioniConiuge\": [\r\n                {\r\n                    \"Sede\": \"0100\",\r\n                    \"CodiceAzione\": \"27\",\r\n                    \"Categoria\": \"001\",\r\n                    \"Certificato\": \"10041404\",\r\n                    \"Decorrenza\": \"2023-11-01\",\r\n                    \"Importo\": 0\r\n                },\r\n                {\r\n                    \"Sede\": \"0100\",\r\n                    \"CodiceAzione\": \"35\",\r\n                    \"Categoria\": \"001\",\r\n                    \"Certificato\": \"10041404\",\r\n                    \"Decorrenza\": \"0001-01-01\",\r\n                    \"Importo\": 0\r\n                },\r\n                {\r\n                    \"Sede\": \"0100\",\r\n                    \"CodiceAzione\": \"37\",\r\n                    \"Categoria\": \"001\",\r\n                    \"Certificato\": \"10041404\",\r\n                    \"Decorrenza\": \"0001-01-01\",\r\n                    \"Importo\": 0\r\n                },\r\n                {\r\n                    \"Sede\": \"0100\",\r\n                    \"CodiceAzione\": \"27\",\r\n                    \"Categoria\": \"044\",\r\n                    \"Certificato\": \"07079191\",\r\n                    \"Decorrenza\": \"2023-11-01\",\r\n                    \"Importo\": 0\r\n                },\r\n                {\r\n                    \"Sede\": \"0100\",\r\n                    \"CodiceAzione\": \"35\",\r\n                    \"Categoria\": \"044\",\r\n                    \"Certificato\": \"07079191\",\r\n                    \"Decorrenza\": \"0001-01-01\",\r\n                    \"Importo\": 0\r\n                },\r\n                {\r\n                    \"Sede\": \"0100\",\r\n                    \"CodiceAzione\": \"37\",\r\n                    \"Categoria\": \"044\",\r\n                    \"Certificato\": \"07079191\",\r\n                    \"Decorrenza\": \"0001-01-01\",\r\n                    \"Importo\": 0\r\n                }\r\n            ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/ConfermaEliminazionePerNuovaUnione",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"ConfermaEliminazionePerNuovaUnione"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PropostaEliminazioniAltriMotivi",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UtenteCorrente\":\r\n    {\r\n        \"CodiceSede\": \"1234\",\r\n        \"Matricola\":\"43111111\"\r\n    },\r\n    \"ChiavePensione\":\r\n    {\r\n        \"Sede\":\"0700\",\r\n        \"Categoria\": \"015\",\r\n        \"Certificato\" : \"30038707\"\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/PropostaEliminazionePerAltriMotivi",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"PropostaEliminazionePerAltriMotivi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfermaEliminazioniAltriMotivi",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"DataEvento\":\"2024-01-24\",\r\n    \"FineRataEstratta\": \"2024-03-01\",\r\n    \"DataCessazione\":\"2024-02-01\",\r\n    \"FineDecorrenza\": \"1951-01-08\",\r\n    \"Cognome\": \"PALUMBO\",\r\n    \"Nome\": \"MARIA CATERINA\",\r\n    \"CodiceFiscale\":\"PLMMCT28R65C275F\",\r\n    \"UtenteCorrente\": \r\n    {\r\n        \"CodiceSede\": \"0100\",\r\n        \"Matricola\":\"54778500\"\r\n    },\r\n    \"ChiavePensione\":\r\n    {\r\n         \"Categoria\": \"003\",\r\n         \"Sede\": \"0100\",\r\n         \"Certificato\": \"00325544\",\r\n         \"CodiceAzione\": \"00\",\r\n         \"Decorrenza\": \"2024-03-01\"\r\n    }\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/ConfermaEliminazionePerAltriMotivi",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"ConfermaEliminazionePerAltriMotivi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfermaFinaleEliminazioniAltriMotivi",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"DataEvento\":\"2024-01-23\",\r\n    \"FineRataEstratta\":\"2024-03-01\",\r\n    \"FineDecorrenza\": \"1951-08-01\",\r\n    \"DataCessazione\":\"2024-02-01\",\r\n    \"Cognome\": \"PALUMBO\",\r\n    \"Nome\": \"MARIA CATERINA\",\r\n    \"CodiceFiscale\":\"PLMMCT28R65C275F\",\r\n    \"UtenteCorrente\": \r\n    {\r\n        \"CodiceSede\": \"0100\",\r\n        \"Matricola\":\"54778500\"\r\n    },\r\n    \"ChiavePensione\":\r\n    {\r\n         \"Categoria\": \"003\",\r\n         \"Sede\": \"0100\",\r\n         \"Certificato\": \"00325544\",\r\n         \"CodiceAzione\": \"06\",\r\n         \"Decorrenza\": \"2024-03-01\"\r\n\r\n    },\r\n     \"DecorrenzaIniziale\": \"2024-03-01\",\r\n     \"Note\": \"Campo Note\"   \r\n}\r\n\r\n ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/ConfermaFinaleEliminazionePerAltriMotivi",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"ConfermaFinaleEliminazionePerAltriMotivi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PropostaEliminazioneGestionePubblica",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UtenteCorrente\": \r\n    {\r\n        \"CodiceSede\": \"0100\",\r\n        \"Matricola\":\"54778500\"\r\n    },\r\n    \"ChiavePensione\":\r\n    {\r\n        \"Sede\":\"0100\",\r\n        \"Categoria\": \"003\",\r\n        \"Certificato\" : \"00325544\"\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/PropostaEliminazioneGestionePubblica",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"PropostaEliminazioneGestionePubblica"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfermaEliminazioneGestionePubblica",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"DataEvento\":\"2024-01-23\",\r\n    \"FineRataEstratta\": \"2024-03-01\",\r\n    \"DataCessazione\":\"2024-02-01\",\r\n    \"FineDecorrenza\": \"1951-08-01\",\r\n    \"Cognome\": \"PALUMBO\",\r\n    \"Nome\": \"MARIA CATERINA\",\r\n    \"CodiceFiscale\":\"PLMMCT28R65C275F\",\r\n    \"UtenteCorrente\": \r\n    {\r\n        \"CodiceSede\": \"0100\",\r\n        \"Matricola\":\"54778500\"\r\n    },\r\n    \"ChiavePensione\":\r\n    {\r\n         \"Categoria\": \"003\",\r\n         \"Sede\": \"0100\",\r\n         \"Certificato\": \"00325544\",\r\n         \"CodiceAzione\": \"00\",\r\n         \"Decorrenza\": \"2024-03-01\"\r\n    }\r\n   \r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/ConfermaEliminazioneGestionePubblica",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"ConfermaEliminazioneGestionePubblica"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfermaFinaleEliminazioneGestionePubblica",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"DataEvento\":\"2024-01-23\",\r\n    \"FineRataEstratta\":\"2024-03-01\",\r\n    \"FineDecorrenza\": \"1951-08-01\",\r\n    \"DataCessazione\":\"2024-02-01\",\r\n    \"Cognome\": \"PALUMBO\",\r\n    \"Nome\": \"MARIA CATERINA\",\r\n    \"CodiceFiscale\":\"PLMMCT28R65C275F\",\r\n    \"UtenteCorrente\": \r\n    {\r\n        \"CodiceSede\": \"0100\",\r\n        \"Matricola\":\"54778500\"\r\n    },\r\n    \"ChiavePensione\":\r\n    {\r\n         \"Categoria\": \"003\",\r\n         \"Sede\": \"0100\",\r\n         \"Certificato\": \"00325544\",\r\n         \"CodiceAzione\": \"06\",\r\n         \"Decorrenza\": \"2024-03-01\"\r\n\r\n    },\r\n     \"DecorrenzaIniziale\": \"2024-03-01\",\r\n     \"Note\": \"Campo Note\"\r\n   \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/ConfermaFinaleEliminazioneGestionePubblica",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"ConfermaFinaleEliminazioneGestionePubblica"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PropostaEliminazioneGestioneAtipica",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UtenteCorrente\": \r\n    {\r\n        \"CodiceSede\": \"0100\",\r\n        \"Matricola\":\"54778500\"\r\n    },\r\n    \"ChiavePensione\":\r\n    {\r\n        \"Sede\":\"0100\",\r\n        \"Categoria\": \"003\",\r\n        \"Certificato\" : \"00325544\"\r\n    }\r\n    \r\n   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/PropostaEliminazioneGestioneAtipica",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"PropostaEliminazioneGestioneAtipica"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfermaEliminazioneGestioneAtipica",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"DataEvento\":\"2024-01-23\",\r\n    \"FineRataEstratta\": \"2024-03-01\",\r\n    \"DataCessazione\":\"2024-02-01\",\r\n    \"FineDecorrenza\": \"1951-08-01\",\r\n    \"Cognome\": \"PALUMBO\",\r\n    \"Nome\": \"MARIA CATERINA\",\r\n    \"CodiceFiscale\":\"PLMMCT28R65C275F\",\r\n    \"UtenteCorrente\": \r\n    {\r\n        \"CodiceSede\": \"0100\",\r\n        \"Matricola\":\"54778500\"\r\n    },\r\n    \"ChiavePensione\":\r\n    {\r\n         \"Categoria\": \"003\",\r\n         \"Sede\": \"0100\",\r\n         \"Certificato\": \"00325544\",\r\n         \"CodiceAzione\": \"00\",\r\n         \"Decorrenza\": \"2024-03-01\"\r\n    }\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/ConfermaEliminazioneGestioneAtipica",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"ConfermaEliminazioneGestioneAtipica"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfermaFinaleEliminazioneGestioneAtipica",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"DataEvento\":\"2024-01-23\",\r\n    \"FineRataEstratta\":\"2024-03-01\",\r\n    \"FineDecorrenza\": \"1951-08-01\",\r\n    \"DataCessazione\":\"2024-02-01\",\r\n    \"Cognome\": \"PALUMBO\",\r\n    \"Nome\": \"MARIA CATERINA\",\r\n    \"CodiceFiscale\":\"PLMMCT28R65C275F\",\r\n    \"UtenteCorrente\": \r\n    {\r\n        \"CodiceSede\": \"0100\",\r\n        \"Matricola\":\"54778500\"\r\n    },\r\n    \"ChiavePensione\":\r\n    {\r\n         \"Categoria\": \"003\",\r\n         \"Sede\": \"0100\",\r\n         \"Certificato\": \"00325544\",\r\n         \"CodiceAzione\": \"06\",\r\n         \"Decorrenza\": \"2024-03-01\"\r\n\r\n    },\r\n     \"DecorrenzaIniziale\": \"2024-03-01\",\r\n     \"Note\": \"Campo Note\"\r\n   \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/ConfermaFinaleEliminazioneGestioneAtipica",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"ConfermaFinaleEliminazioneGestioneAtipica"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PropostaVariazioneDecesso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UtenteCorrente\":\r\n    {\r\n        \"CodiceSede\": \"0100\",\r\n        \"Matricola\":\"54778500\"\r\n    },\r\n    \"Nome\":\"GIOVANNA\",\r\n    \"Cognome\":\"RIZZUTO\",\r\n    \"CodiceFiscale\": \"RZZGNN30R58A089I\",\r\n    \"Pensioni\":[\r\n        {\r\n        \"Sede\":\"0100\",\r\n        \"Categoria\": \"001\",\r\n        \"Certificato\" : \"10011054\",\r\n        \"TipoComponente\" : \"T\"\r\n     \r\n        }\r\n \r\n    ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/PropostaVariazioneDecesso",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"PropostaVariazioneDecesso"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfermaVariazioneDecesso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UtenteCorrente\":\r\n    {\r\n        \"CodiceSede\": \"0100\",\r\n        \"Matricola\":\"54778500\"\r\n    },\r\n    \"DataDecesso\":\"2023-12-16\",\r\n    \"Nome\":\"GIOVANNA\",\r\n    \"Cognome\":\"RIZZUTO\",\r\n    \"CodiceFiscale\": \"RZZGNN30R58A089I\",\r\n    \"Pensioni\":[\r\n        {\r\n            \"Sede\":\"0100\",\r\n            \"Categoria\": \"001\",\r\n            \"Certificato\" : \"10011054\",\r\n            \"TipoComponente\" : \"T\",\r\n            \"DecodificaTipoFamiliare\": \"Titolare\",\r\n            \"DataDecorrenzaEliminazione\": \"2024-02-01\",\r\n            \"DataEventoOld\": \"2023-12-14\",\r\n            \"DataCessazioneOld\": \"2024-01-01\",\r\n            \"DataDecorrenzaScadenzaFamiliareOld\": \"0001-01-01\",\r\n            \"DataDecorrenzaScadenzaFamiliareNew\": \"0001-01-01\"\r\n        }\r\n \r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/ConfermaVariazioneDecesso",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"ConfermaVariazioneDecesso"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PropostaEliminazionePerCessataInabilita",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UtenteCorrente\": \r\n    {\r\n        \"CodiceSede\": \"0100\",\r\n        \"Matricola\":\"54778500\"\r\n    },\r\n    \"ChiavePensione\":\r\n    {\r\n        \"Sede\":\"0100\",\r\n        \"Categoria\": \"002\",\r\n        \"Certificato\" : \"00989474\"\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/PropostaEliminazionePerCessataInabilita",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"PropostaEliminazionePerCessataInabilita"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfermaEliminazionePerCessataInabilita",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"DataEvento\": \"2024-04-01\",\r\n    \"DataCessazione\": \"2024-04-01\",\r\n    \"Decorrenza\" : \"2024-03-01\",\r\n    \"FineDecorrenza\": \"1977-10-01\",\r\n    \"FineRataEstratta\": \"2024-04-01\",\r\n    \"Nome\": \"GAETANA\",\r\n    \"Cognome\": \"BORDONARO\",\r\n    \"CodiceFiscale\": \"BRDGTN46A71F845R\",  \r\n    \"ChiavePensione\":[\r\n    {\r\n        \"Sede\":\"0100\",\r\n        \"Categoria\": \"002\",\r\n        \"Certificato\" : \"00989474\",\r\n        \"Decorrenza\" : \"2024-04-01\"\r\n    }],\r\n    \"UtenteCorrente\": \r\n    {\r\n        \"CodiceSede\": \"0100\",\r\n        \"Matricola\":\"54778500\"\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/ConfermaEliminaioneCessataInabilita",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"ConfermaEliminaioneCessataInabilita"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfermaFinaleEliminazionePerCessataInabilita",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n   \"DataEvento\": \"2024-04-01\",\r\n    \"DataCessazione\": \"2024-04-01\",\r\n    \"Decorrenza\" : \"2024-03-01\",\r\n    \"FineDecorrenza\": \"1977-10-01\",\r\n    \"FineRataEstratta\": \"2024-04-01\",\r\n    \"Nome\": \"GAETANA\",\r\n    \"Cognome\": \"BORDONARO\",\r\n    \"CodiceFiscale\": \"BRDGTN46A71F845R\",  \r\n    \"ChiavePensione\":[\r\n    {\r\n        \"Sede\":\"0100\",\r\n        \"Categoria\": \"002\",\r\n        \"Certificato\" : \"00989474\",\r\n        \"Decorrenza\" : \"2024-04-01\"\r\n    }],\r\n    \"UtenteCorrente\": \r\n    {\r\n        \"CodiceSede\": \"0100\",\r\n        \"Matricola\":\"54778500\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/ConfermaFinaleEliminaioneCessataInabilita",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"ConfermaFinaleEliminaioneCessataInabilita"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PropostaTrasformazioneTitolo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UtenteCorrente\": \r\n    {\r\n        \"CodiceSede\": \"0100\",\r\n        \"Matricola\":\"54778500\"\r\n    },\r\n    \"ChiavePensione\":\r\n    {\r\n        \"Sede\":\"0100\",\r\n        \"Categoria\": \"003\",\r\n        \"Certificato\" : \"00000005\"\r\n    }\r\n   \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/PropostaTrasformazioneTitolo",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"PropostaTrasformazioneTitolo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfermaTrasformazioneTitolo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"DataEvento\": \"2023-04-01\",\r\n    \"DataCessazione\": \"2023-04-01\",\r\n    \"Decorrenza\": \"2023-04-01\",\r\n    \"FineDecorrenza\": \"2023-04-01\",\r\n    \"FineRataEstratta\": \"2023-04-01\",\r\n    \"UtenteCorrente\": \r\n    {\r\n        \"CodiceSede\": \"0100\",\r\n        \"Matricola\":\"54778500\"\r\n    },\r\n    \"Cognome\": \"CASCIANO\",\r\n    \"Nome\": \"MARTINA\",\r\n    \"CodiceFiscale\": \"CSCMTN06D46A944E\",   \r\n    \"ChiavePensione\": \r\n    {\r\n       \"Categoria\": \"0\",\r\n       \"Sede\": \"0100\",\r\n       \"Certificato\": \"00000003\",\r\n       \"CodiceAzione\": \"06\",\r\n       \"Decorrenza\": \"2023-04-01\",\r\n       \"CodiceEliminazione\": null\r\n    }  \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/ConfermaTrasformazioneTitolo",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"ConfermaTrasformazioneTitolo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfermaFinaleTrasformazioneTitolo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"DataEvento\": \"2023-04-01\",\r\n    \"DataCessazione\": \"2023-04-01\",\r\n    \"Decorrenza\": \"2023-04-01\",\r\n    \"FineDecorrenza\": \"2023-04-01\",\r\n    \"FineRataEstratta\": \"2023-04-01\",\r\n    \"UtenteCorrente\": \r\n    {\r\n        \"CodiceSede\": \"0100\",\r\n        \"Matricola\":\"54778500\"\r\n    },\r\n    \"Cognome\": \"CASCIANO\",\r\n    \"Nome\": \"MARTINA\",\r\n    \"CodiceFiscale\": \"CSCMTN06D46A944E\",   \r\n    \"ChiavePensione\": \r\n    {\r\n       \"Categoria\": \"0\",\r\n       \"Sede\": \"0100\",\r\n       \"Certificato\": \"00000003\",\r\n       \"CodiceAzione\": \"06\",\r\n       \"Decorrenza\": \"2023-04-01\",\r\n       \"CodiceEliminazione\": null\r\n    }\r\n  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/ConfermaFinaleTrasformazioneTitolo",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"ConfermaFinaleTrasformazioneTitolo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PropostaRevocaInvaliditaCivile",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"DataEvento\":\"2024-04-03\",\r\n    \"UtenteCorrente\": \r\n    {\r\n        \"CodiceSede\": \"0100\",\r\n        \"Matricola\":\"54778500\"\r\n    },\r\n    \"TipoRevoca\":\"U\",\r\n    \"ChiavePensione\":\r\n    {\r\n        \"Sede\":\"0100\",\r\n        \"Categoria\": \"044\",\r\n        \"Certificato\" : \"00000003\"\r\n    }\r\n    \r\n   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/PropostaRevocaInvaliditaCivile",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"PropostaRevocaInvaliditaCivile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfermaRevocaInvaliditaCivile",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Cognome\":\"BORDONARO\",\r\n    \"Nome\":\"GAETANA\",\r\n    \"CodiceFiscale\":\"BRDGTN46A71F845R\",\r\n    \"DataCessazione\": \"2024-05-01\",\r\n    \"DataEvento\":\"2024-04-03\",\r\n    \"FineDecorrenza\":\"1977-10-01\",\r\n    \"FineRataEstratta\": \"2024-03-01\",\r\n    \"AnnoRinnovo\": 2024,\r\n    \"TipoRevoca\":\"U\",\r\n     \"ChiavIPensione\": \r\n     [\r\n       {\r\n        \"Sede\":\"0100\",\r\n        \"Categoria\": \"044\",\r\n        \"Certificato\" : \"00000003\",\r\n        \"CodiceAzione\": \"00\",\r\n         \"Decorrenza\": \"2024-03-01\" \r\n        }\r\n    ],   \r\n  \r\n   \"UtenteCorrente\": \r\n    {\r\n        \"CodiceSede\": \"0100\",\r\n        \"Matricola\":\"54778500\"\r\n    }\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/EliminazionePensioni/ConfermaRevocaInvaliditaCivile",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"EliminazionePensioni",
+						"ConfermaRevocaInvaliditaCivile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GestioneMessaggi",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/api/v1/GestioneMessaggi/LetturaMessaggi/categoria/1/codice/Nozze1",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"GestioneMessaggi",
+						"LetturaMessaggi",
+						"categoria",
+						"1",
+						"codice",
+						"Nozze1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Indebiti",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/api/v1/Indebiti/ByCodiceFiscale/VLRGPP34R45C740J",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Indebiti",
+						"ByCodiceFiscale",
+						"VLRGPP34R45C740J"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LetturaSediAttive",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"SSZZCO\": \"330000\"\r\n  },\r\n  {\r\n    \"SSZZCO\": \"010000\"\r\n  }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/LetturaSediAttive/LetturaSediAttive",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"LetturaSediAttive",
+						"LetturaSediAttive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LogEvents",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Level\": \"Debug\",\r\n  \"Timestamp\": \"2024-02-12T16:04:31.447Z\",\r\n  \"Exception\": \"\",\r\n  \"Properties\": \"\",\r\n  \"Messaggio\": \"Prova log da postman\",\r\n  \"NomeMetodo\": \"Postman\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/LogEvents/AddLogEvents",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"LogEvents",
+						"AddLogEvents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OperazioniEffettuateRichiediUltimeOperazioniEffettuate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"MaxNumeroOperazioni\": 5,\r\n  \"UtenteCorrente\": {\r\n    \"CodiceSede\": \"5600\",\r\n    \"Matricola\": \"54778500\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/OperazioniEliminazioniPensioni/RichiediUltimeOperazioniEffettuate",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"OperazioniEliminazioniPensioni",
+						"RichiediUltimeOperazioniEffettuate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OperazioniEffettuateRichiediTutteOperazioniEffettuate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"UtenteCorrente\":\r\n    {\r\n        \"CodiceSede\": \"5600\",\r\n        \"Matricola\":\"54778500\"\r\n    },\r\n    \"DateStart\" :\"21/12/2023\",\r\n    \"DateEnd\" : \"31/01/2024\",\r\n    \"TipologiaId\" : 1   \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/OperazioniEliminazioniPensioni/RichiediTutteOperazioniEffettuate",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"OperazioniEliminazioniPensioni",
+						"RichiediTutteOperazioniEffettuate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConteggioOperazioniUltimoMese",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/api/v1/OperazioniEliminazioniPensioni/ConteggioOperazioniUltimoMese/Sede/330000",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"OperazioniEliminazioniPensioni",
+						"ConteggioOperazioniUltimoMese",
+						"Sede",
+						"330000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Opzioni",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/api/v1/Opzioni/LeggiOpzioni",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Opzioni",
+						"LeggiOpzioni"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RegistraOperazioni",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"CodiceFiscaleSoggetto\": \"FRNLGU61A08H811D\",\r\n  \"DataArrivoPratica\": \"2024-02-20T09:12:19.217Z\",\r\n  \"DataArrivoPraticaSpecified\": true,\r\n  \"DataChiusuraPratica\": \"2024-02-20T09:12:19.217Z\",\r\n  \"DataChiusuraPraticaSpecified\": true,\r\n  \"OraChiusuraPraticaSpecified\": true,\r\n  \"MatricolaOperatore\": \"string\",\r\n  \"SedeGiudirica\": \"string\",\r\n  \"SedeAspn4\": \"3300\",\r\n  \"ChiavePensione\": \"044320007049742\",\r\n  \"Modello\": \"string\",\r\n  \"Note\": \"string\",\r\n  \"ProceduraSorgente\": \"string\",\r\n  \"TipoOperazione\": \"string\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/RegistraOperazioni/RegistraOperazione",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"RegistraOperazioni",
+						"RegistraOperazione"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "StoricoOperazioniEliminazioniPensioni",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{psw-api-EliminzioniPeRiac}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-api-EliminazioniPeRiac}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"CodiceFiscale\": \"RDNMRA70L28L009W\",\r\n  \"DataElaborazione\": \"2024-05-17T19:02:53.807Z\",\r\n  \"MatricolaOperatore\": \"1111111\",\r\n  \"SediOperatore\": \"010000;330000\",\r\n  \"Proprietario\": \"Titolare\",\r\n  \"CodiceFiscaleCollegato\": \"\",\r\n  \"TipoOperazioniEliminazioni\": 1,\r\n  \"PensioniList\": [\r\n    {\r\n      \"Categoria\": \"001\",\r\n      \"Sede\": \"3300\",\r\n      \"Certificato\": \"01235987\",\r\n      \"SedeDiGestione\": \"330000\",\r\n      \"CodiceAzione\": \"22\",\r\n      \"DataDecCodiceAzione\": \"2024-05-17T19:02:53.807Z\",\r\n      \"DataProvvedimento\": \"2024-05-17T19:02:53.807Z\",\r\n      \"DataCessazioneCertificazione\": \"2024-05-17T19:02:53.807Z\",\r\n      \"DecorrenzaOriginaria\": \"2024-05-17T19:02:53.807Z\"\r\n    },\r\n    {\r\n      \"Categoria\": \"002\",\r\n      \"Sede\": \"3300\",\r\n      \"Certificato\": \"01235987\",\r\n      \"SedeDiGestione\": \"330000\",\r\n      \"CodiceAzione\": \"22\",\r\n      \"DataDecCodiceAzione\": \"2024-05-17T19:02:53.807Z\",\r\n      \"DataProvvedimento\": \"2024-05-17T19:02:53.807Z\",\r\n      \"DataCessazioneCertificazione\": \"2024-05-17T19:02:53.807Z\",\r\n      \"DecorrenzaOriginaria\": \"2024-05-17T19:02:53.807Z\"\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/v1/StoricoOperazioniEliminazioniPensioni/ScritturaStoricoOperazioni",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"StoricoOperazioniEliminazioniPensioni",
+						"ScritturaStoricoOperazioni"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

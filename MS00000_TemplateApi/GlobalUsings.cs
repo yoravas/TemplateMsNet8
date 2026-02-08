@@ -1,0 +1,1 @@
+﻿global using MS00000_TemplateApi.Customizations.Extensions;

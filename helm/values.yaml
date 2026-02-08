@@ -1,0 +1,161 @@
+#Template predefinito per Deploy in ambiente containerizzati INPS
+
+#impostare il numero di repliche del POD se non viene utilizzato l'autoscaling
+replicaCount: #{replicaCount}#
+
+microservice:
+# labelPartOf --> Utile per effettuare l’application grouping.
+#Usare il nome dell’applicazione a cui appartiene il componente, come da Catalogo Applicazioni, tutto minuscolo, senza spazi e separato da trattini bassi “_“.
+#Esempio: se da catalogo abbiamo “Gestione flussi Ade”, la label sarà:
+#part-of:gestione_flussi_ade
+  #labelPartOf: <inserire qui il valore della variabile>
+  labelPartOf: gestione_flussi_ade
+
+# labelOrganization --> Usare la combinazione delle sigle corrispondenti a "Macro Area Funzionale"_"Area Funzionale" _"nome dell’Area Applicativa", tutto in minuscolo e con le singole parole separate da trattini bassi “_“ .
+#Esempio: se l’applicazione di riferimento per una componente è catalogata come:
+#Macro Area Funzionale → “Entrate e Contributi” → ec
+#Area Funzionale → “Lavoratori Autonomi” → la
+#Area Applicativa → “Gestione dati fiscali” → gestionedatifiscali
+#Allora usare
+#labelOrganization: ec_la_gestionedatifiscali
+  #labelOrganization: <inserire qui il valore della variabile>
+  labelOrganization: ec_la_gestionedatifiscali
+
+#labelType --> valorizzare con il tipo di componente come da scheda tecnica (frontend, backend...ecc)
+  #labelType: <inserire qui il valore della variabile>
+  labelType: frontend
+#labelFramework --> Indicare il tipo framework usato. Se Quarkus implica uso di OCP come target
+  #labelFramework: <inserire qui il valore della variabile>
+  labelFramework: springboot
+
+#Le probe, che DEVONO essere configurate dagli sviluppatori, vanno inserite nei seguenti path e 
+#i valori temporali o di soglie vanno sagomati in base alle esigenze del singolo microservizio sempre dagli Sviluppatori
+  livenessProbe:
+      path: "/actuator/health/liveness"
+      initialDelaySeconds: 30
+      timeoutSeconds: 10
+      periodSeconds: 10
+      successThreshold: 1
+      failureThreshold: 5
+
+  readinessProbe:
+      path: "/actuator/health/readiness"
+      initialDelaySeconds: 30
+      timeoutSeconds: 10
+      periodSeconds: 10
+      successThreshold: 1
+      failureThreshold: 5
+      
+
+#La porta, se non ci sono motivi particolari, va lasciata la 8080
+service:
+  type: ClusterIP
+  port: 8080
+  targetPort: 8080
+  #alternativePort: 8443 #porte alternative da specificare solo in casi particolari e di reale uso da parte dell'applicazione
+  #alternativeTargetPort: 8443 
+
+#Se il microservizio espone delle API vero APIGAteway per essere richiamato dall'esterno o da altra area funzionale INPS
+#va esposto tramite ingress o route in base alla piattaforma
+
+#1)se la "piattaforma=OCP" il microservizio è deployato su Openshift e il service viene esposto tramite la Route 
+route:
+  annotations: {
+    #se non specificato il default è 30s, è possibile aumentarlo al massimo a 2m espresso in secondi o minuti
+    timeout: 30s
+  }
+
+#2)se la "piattaforma=Tanzu" il microservizio è deployato su Tanzu e il service viene esposto tramite l'ingress   
+ingress:
+  classname: ingress
+  annotations: {
+    # se non specificato il default è 15s, è possibile aumentarlo al massimo a 120s secondi
+    timeout: 30s
+  }
+  hosts:
+    - host: #{baseURL}# 
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+
+resources:
+  #il valore massimo ammissibile di request CPU e Memory sono rispettivamente:
+  #Sviluppo -->   200m di CPU - 750Mi di memory
+  #Collaudo -->   200m di CPU - 750Mi di memory
+  #Produzione --> 200m di CPU - 750Mi di memory
+  #E' possibile usare dei placeholder per contestualizzare i valori per ambiente
+  #ATTENZIONE QUESTI SONO VALORI MAX E SE NON CORRETTAMENTE TARATI POSSONO FAR FUNZIONARE MALE IL MICROSERVIZIO ED EVENTUALI MECCANISMI DI SCALING ORIZZONTALE 
+  #Valori da specificare in millicpu per le CPU e MBi per la Memory senza inserire unità di misura che saranno inserite dalla pipeline
+  requests:
+    cpu: #{RequestCPU}#
+    memory: #{RequestMEM}#
+  #il valore massimo ammissibile di limits CPU e Memory sono rispettivamente:
+  #Sviluppo -->   1000m CPU - 1.5Gi di memory
+  #Collaudo -->   1000m CPU - 2Gi di memory
+  #Produzione --> 1000m CPU - 2Gi di memory
+  #E' possibile usare dei placeholder per contestualizzare i valori per ambiente
+  #ATTENZIONE QUESTI SONO VALORI MAX E SE NON CORRETTAMENTE TARATI POSSONO FAR FUNZIONARE MALE IL MICROSERVIZIO ED EVENTUALI MECCANISMI DI SCALING ORIZZONTALE
+  #Valori da specificare in millicpu per le CPU e MBi per la Memory senza inserire unità di misura che saranno inserite dalla pipeline
+  limits:
+    cpu: #{LimitCPU}#
+    memory: #{LimitMEM}#
+
+# Sezione dedicata allo Horizontal Pod Autoscaling abilitare solo se il pod deve scalare e
+# se l'applicazione è programmata per avere più repliche di un microservizio.
+# i valori devono essere tarati per un corretto funzionamento .
+# Ricordarsi che per funzionare l'HPA ha bisogno che le request di CPU e Memorua siano correttamente tarati.
+autoscaling:
+  enabled: false #abilitare con true e valorizzare gli alri campi per lo scaling orizzontale.
+  #numero minimo di pod che devono essere contemporaneamente in running non può essere superiore al max
+  minReplicas: #{minReplicas}#
+  #il maxReplica ammissibili per i vari ambienti sono: 3 in sviluppo, 5 in collaudo e 10 in produzione
+  # ovviamente valori inferiori sono possibili
+  maxReplicas: #{maxReplicas}#
+  #ATTENZIONE i valori successivi devono essere tarati, non usare quelli sotto indicati
+  # è possibile aggiungere o eliminare righe in base alla policy che si vuole implementare
+  # consultare la guida di Kubernetes per una corretta configurazione
+  # https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+  policyPODs:
+    stabilizationWindowSeconds: 300
+    scaleDown:
+      periodSeconds: 60 #1 minuto
+    scaleUp:
+      pods:
+        value: 1
+        periodSeconds: 30
+      percent:
+        value: 100
+        periodSeconds: 15 
+
+#Parte dedicata alla creazione di una directory vuota e volatile su cui è possibile scrivere file temporanei (dimensione massima 100MB) 
+#da usare come spazio di lavoro per contenere file o elaborazioni parziali che saranno cancellati al riavvio (normale o anomalo) del pod
+#il path abilitato alla scrittura è: /tmpdir
+tmpdir:
+  enabled: false #per abilitare modificare a true
+
+#Parte dedicata al popolamento di secret e configmap
+#inserire le variabili e il corrispondente placeholder che andranno a popolare i due oggetti.
+application:
+##### Variabili del secret #####
+  secretProperties:
+    DB_PASSWORD: #{DB_PASSWORD}#
+    #<ulteriore variabile>: <ulteriore placeholder> 
+
+##### Variabili della configmap #####
+  properties:
+    # Livello di log
+    LOG_LEVEL: #{LOG_LEVEL}#
+    #<ulteriore variabile>: <ulteriore placeholder>
+
+
+############################################################################################
+############## Sezione da compilare solo in casi particolari, previo ok del gruppo       ###
+############## Cloud Privato (su ticket Remeedy).                                        ###
+############################################################################################ 
+
+#Nel caso in cui si vogliano collaudare MS con uso particolare di risorse, tramite stress test.
+#Il gruppo Coud Privato ha la possibilità, solo nell'ambiente di collaudo, di prevedere l'uso di nodi dedicati all'occorrenza.
+modalita:
+  collaudo: false
