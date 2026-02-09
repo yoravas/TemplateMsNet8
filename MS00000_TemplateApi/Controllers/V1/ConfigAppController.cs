@@ -34,5 +34,7 @@ public class ConfigAppController(IMediator mediator, ILogger<ConfigAppController
 
             return NoContent();
         }
+
+
     }
 }

@@ -1,4 +1,5 @@
 
+using MS00000_TemplateApi.Configurations.AppSettings;
 using MS00000_TemplateApi.Customizations.Consts;
 using MS00000_TemplateApi.Customizations.Helpers;
 using Serilog;
@@ -18,6 +19,9 @@ public class Program
         SetSelfLogSerilog();
 
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+        PlaceholdersComfig.SetPlaceholderConfig(builder);
+
 
         SetSerilog(builder);
         builder.Host.UseSerilog();

@@ -12,11 +12,19 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Content Remove="devplaceholders.json" />
+	</ItemGroup>
+
+	<ItemGroup>
 
 		<None Remove="Services\Infrastracture\Data\SqlServer\Queries\ConfigApp\SelectAll.sql" />
 	</ItemGroup>
 
 	<ItemGroup>
+
+		<EmbeddedResource Include="devplaceholders.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</EmbeddedResource>
 
 		<EmbeddedResource Include="Services\Infrastracture\Data\SqlServer\Queries\ConfigApp\SelectAll.sql" />
 	</ItemGroup>

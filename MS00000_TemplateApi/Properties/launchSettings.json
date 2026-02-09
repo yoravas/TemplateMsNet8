@@ -22,7 +22,12 @@
       "commandName": "Docker",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:32905/swagger",
-      "publishAllPorts": false
+      "publishAllPorts": false,
+      "environmentVariables": {
+        "PSW_SESSION_CACHE_DB": "13212aspNET!",
+        "PSW_LOGDATABASE_DB": "13212aspNET!",
+        "PSW_APP-MS_DB": "13212aspNET!"
+      }
     },
     "WSL": {
       "commandName": "WSL2",
