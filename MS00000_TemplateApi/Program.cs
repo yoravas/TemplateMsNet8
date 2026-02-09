@@ -101,8 +101,8 @@ public class Program
 
         Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Debug()
-            .MinimumLevel.Override("Microsoft", LogEventLevel.Debug)
-            .MinimumLevel.Override("System", LogEventLevel.Debug)
+            .MinimumLevel.Override("Microsoft", LogEventLevel.Error)
+            .MinimumLevel.Override("System", LogEventLevel.Error)
             .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Error)
             .Enrich.FromLogContext()
             .Enrich.WithProperty("Application", "EliminazioniPeRiac")
