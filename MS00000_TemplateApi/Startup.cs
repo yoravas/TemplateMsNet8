@@ -6,7 +6,6 @@ using Microsoft.Extensions.Http.Resilience;
 using Microsoft.Extensions.Options;
 using MS00000_TemplateApi.Configurations;
 using MS00000_TemplateApi.Configurations.Swagger;
-using MS00000_TemplateApi.Customizations.Extensions;
 using MS00000_TemplateApi.Customizations.Helpers;
 using MS00000_TemplateApi.Model.Options;
 using Polly;
