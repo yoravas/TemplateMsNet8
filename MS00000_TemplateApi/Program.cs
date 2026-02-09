@@ -97,7 +97,12 @@ public class Program
             new SqlColumn(SerilogColumCustom.FilePath, SqlDbType.NVarChar) { DataLength = -1, AllowNull = true }
         };
 
-        string connectionString = builder.Configuration.GetSection("ConnectionStrings").GetSection("LogDatabase").GetValue<string>("Connection");
+        string connectionString = builder.Configuration.GetSection("ConnectionStrings").GetSection("LogDatabase").GetValue<string>("Connection") ?? string.Empty;
+
+        if (string.IsNullOrWhiteSpace(connectionString))
+        {
+            throw new ArgumentException("La stringa di connessione per il database dei log non è presente nel file di configurazione.");
+        }
 
         Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Debug()
@@ -107,8 +112,6 @@ public class Program
             .Enrich.FromLogContext()
             .Enrich.WithProperty("Application", "EliminazioniPeRiac")
             .Enrich.WithProperty("Environment", "Production")
-
-            // Default globale per evitare NULL in AdditionalColumns non-nullable
             .Enrich.WithProperty(SerilogColumCustom.CorrelationId, Ulid.NewUlid().ToString())        // valore di default
             .Enrich.WithProperty(SerilogColumCustom.Metodo, LoggerInfoHelper.LogUsedItemInfo())
 
