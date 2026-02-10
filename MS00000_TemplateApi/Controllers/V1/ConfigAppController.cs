@@ -23,7 +23,7 @@ public class ConfigAppController(IMediator mediator, ILogger<ConfigAppController
         logger.LogInformationCustom("GetConfigAppAsync called");
         List<ConfigAppDto> configList = await mediator.Send(new GetConfigAppAllQuery());
 
-        logger.LogDebugCustom($"Lista configurazione recuperata: {configList.Count} items", configList);
+        logger.LogDebugCustom($"Lista configurazione recuperata: {configList.Count} items", additionalData: configList);
         if (configList.Any())
         {
             return Ok(new ApiResponse<List<ConfigAppDto>>(configList));
@@ -34,7 +34,6 @@ public class ConfigAppController(IMediator mediator, ILogger<ConfigAppController
 
             return NoContent();
         }
-
 
     }
 }
