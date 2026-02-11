@@ -1,6 +1,6 @@
 {
-  "db-session-cache": "Server=172.17.0.3,1433;Database=DbTemplate;Encrypt=False;Persist Security Info=True;User Id=sa;Password={0};",
-  "db-log": "Server=172.17.0.3,1433;Database=DbTemplate;Encrypt=False;Persist Security Info=True;User Id=sa;Password={0};",
-  "db-app-ms": "Server=172.17.0.3,1433;Database=DbTemplate;Encrypt=False;Persist Security Info=True;User Id=sa;Password={0};",
+  "db-session-cache": "Server=host.docker.internal;Database=DbTemplate;Encrypt=False;Persist Security Info=True;User Id=sa;Password={0};",
+  "db-log": "Server=host.docker.internal;Database=DbTemplate;Encrypt=False;Persist Security Info=True;User Id=sa;Password={0};",
+  "db-app-ms": "Server=host.docker.internal;Database=DbTemplate;Encrypt=False;Persist Security Info=True;User Id=sa;Password={0};",
   "serilog-level": "Debug"
 }
