@@ -9,7 +9,7 @@ public static class LoggerCustomExtension
     public static void LogDebugCustom(
         this ILogger logger,
         string? message = "",
-        object additionalData = null,
+        object? additionalData = null,
         [CallerMemberName] string metodo = "",
         [CallerFilePath] string filePath = "",
         [CallerLineNumber] int linea = 0)
@@ -35,7 +35,7 @@ public static class LoggerCustomExtension
     public static void LogWarningCustom(
         this ILogger logger,
         string? message = "",
-        object additionalData = null,
+        object? additionalData = null,
         [CallerMemberName] string metodo = "",
         [CallerFilePath] string filePath = "",
         [CallerLineNumber] int linea = 0)
@@ -50,7 +50,7 @@ public static class LoggerCustomExtension
         this ILogger logger,
         Exception? ex,
         string? message = "",
-        object additionalData = null,
+        object? additionalData = null,
         [CallerMemberName] string metodo = "",
         [CallerFilePath] string filePath = "",
         [CallerLineNumber] int linea = 0)
@@ -65,7 +65,7 @@ public static class LoggerCustomExtension
         string metodo,
         string filePath,
         int linea,
-        object additionalData = null)
+        object? additionalData = null)
     {
         string className = filePath.Split('\\')?.Last()?.Split('.')?.First() ?? "Classe-Sconosciuta";
         string nomeMetodoCompleto = $"{className}.{metodo} - Linea: {linea}";

@@ -80,9 +80,9 @@ public class Program
             {
                 StandardColumn.Id,
                 StandardColumn.TimeStamp,
+                StandardColumn.Level,
                 StandardColumn.Message,
                 StandardColumn.MessageTemplate,
-                StandardColumn.Level,
                 StandardColumn.Exception,
                 StandardColumn.Properties
             }
