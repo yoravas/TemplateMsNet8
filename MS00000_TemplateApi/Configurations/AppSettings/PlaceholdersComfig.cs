@@ -22,7 +22,7 @@ public static class PlaceholdersComfig
 
     private static Dictionary<string, string> LoadReplacements(string path)
     {
-        Dictionary<string, string> result = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        Dictionary<string, string> result = new(StringComparer.OrdinalIgnoreCase);
 
         if (!File.Exists(path))
             return new(StringComparer.OrdinalIgnoreCase);
@@ -71,7 +71,7 @@ public static class PlaceholdersComfig
         IConfiguration configuration,
         IDictionary<string, string> replacements)
     {
-        Regex regex = new Regex(@"#\{(.+?)\}#", RegexOptions.Compiled | RegexOptions.CultureInvariant);
+        Regex regex = new(@"#\{(.+?)\}#", RegexOptions.Compiled | RegexOptions.CultureInvariant, TimeSpan.FromMilliseconds(100));
         Dictionary<string, string?> dict = new(StringComparer.OrdinalIgnoreCase);
 
         foreach (KeyValuePair<string, string?> kvp in configuration.AsEnumerable(makePathsRelative: false))
@@ -94,7 +94,7 @@ public static class PlaceholdersComfig
         }
 
         // Converti a Dictionary<string,string> per AddInMemoryCollection
-        Dictionary<string, string> notNull = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        Dictionary<string, string> notNull = new(StringComparer.OrdinalIgnoreCase);
         foreach ((string k, string v) in dict)
         {
             if (v is not null)

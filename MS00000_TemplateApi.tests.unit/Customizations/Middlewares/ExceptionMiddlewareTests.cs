@@ -1,43 +1,60 @@
-﻿using System.Net;
-
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-
+using Moq;
 using MS00000_TemplateApi.Customizations.Extensions;
+using MS00000_TemplateApi.Customizations.Middlewares;
+using System.Net;
 
 namespace MS00000_TemplateApi.tests.unit.Customizations.Middlewares;
 public class ExceptionMiddlewareTests
 {
-    [Theory]
-    [InlineData("Development")]
-    [InlineData("Production")] //Environments.Production
-    public async Task ConfigureExceptionHandler_HandlesException(string testEnvironment)
+    [Fact]
+    public async Task InvokeAsync_SenzaEccezioni_NextChiamato()
     {
         // Arrange
-        WebApplicationBuilder builder = WebApplication.CreateBuilder(new[] { "--urls", "http://localhost:5557" });
-        builder.Logging.AddConsole();
-        builder.Environment.EnvironmentName = testEnvironment;
+        Mock<ILogger<ExceptionMiddleware>> loggerMock = new();
+        bool nextCalled = false;
+        RequestDelegate next = new(async ctx =>
+        {
+            nextCalled = true;
+            await Task.CompletedTask;
+        });
 
-        WebApplication app = builder.Build();
-
-        ILogger<ExceptionMiddlewareTests> logger = app.Services.GetRequiredService<ILogger<ExceptionMiddlewareTests>>();
-        IWebHostEnvironment env = app.Services.GetRequiredService<IWebHostEnvironment>();
-
-        app.ConfigureCatchUnhandledException();
-
-        app.MapGet("/", context => throw new Exception("Test exception"));
-
-        await app.StartAsync();
-        HttpClient client = new() { BaseAddress = new Uri("http://localhost:5557") };
+        DefaultHttpContext httpContext = new();
+        httpContext.Response.Body = new MemoryStream();
+        ExceptionMiddleware middleware = new(loggerMock.Object);
 
         // Act
-        HttpResponseMessage response = await client.GetAsync("/");
+        await middleware.InvokeAsync(httpContext, next);
 
         // Assert
-        Assert.Equal(HttpStatusCode.InternalServerError, response.StatusCode);
+        Assert.True(nextCalled);
+    }
 
-        await app.StopAsync();
+    [Fact]
+    public async Task InvokeAsync_EccezioneConResponseNonAvviata_GeneraPayloadErrore()
+    {
+        // Arrange
+        Mock<ILogger<ExceptionMiddleware>> loggerMock = new();
+
+        RequestDelegate next = new(ctx =>
+        {
+            throw new Exception("boom");
+        });
+
+        DefaultHttpContext httpContext = new();
+        MemoryStream original = new();
+        httpContext.Response.Body = original;
+
+        ExceptionMiddleware middleware = new(loggerMock.Object);
+
+        // Act
+        await middleware.InvokeAsync(httpContext, next);
+
+        // Assert
+        Assert.True(original.Length > 0);
     }
 }

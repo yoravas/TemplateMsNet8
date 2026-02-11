@@ -1,4 +1,3 @@
-
 using MS00000_TemplateApi.Configurations.AppSettings;
 using MS00000_TemplateApi.Customizations.Consts;
 using MS00000_TemplateApi.Customizations.Helpers;
@@ -110,7 +109,7 @@ public class Program
             .MinimumLevel.Override("System", LogEventLevel.Error)
             .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Error)
             .Enrich.FromLogContext()
-            .Enrich.WithProperty("Application", "EliminazioniPeRiac")
+            .Enrich.WithProperty("Application", "TemplateApi")
             .Enrich.WithProperty("Environment", "Production")
             .Enrich.WithProperty(SerilogColumCustom.CorrelationId, Ulid.NewUlid().ToString())        // valore di default
             .Enrich.WithProperty(SerilogColumCustom.Metodo, LoggerInfoHelper.LogUsedItemInfo())
