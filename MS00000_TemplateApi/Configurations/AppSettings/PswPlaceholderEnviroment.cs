@@ -1,5 +1,5 @@
 ﻿namespace MS00000_TemplateApi.Configurations.AppSettings;
-public class PswPlaceholderEnviroment
+public static class PswPlaceholderEnviroment
 {
     public const string SessionCacheDB = "db-session-cache";
     public const string PswSessionCacheDB = "PSW_SESSION_CACHE_DB";

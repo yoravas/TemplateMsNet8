@@ -1,4 +1,4 @@
-using MS00000_TemplateApi.Configurations.AppSettings;
+using MS00000_TemplateApi.Configurations.Appsettings;
 using MS00000_TemplateApi.Customizations.Consts;
 using MS00000_TemplateApi.Customizations.Helpers;
 using Serilog;

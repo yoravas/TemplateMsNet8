@@ -1,15 +1,10 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using MS00000_TemplateApi.Configurations.Appsettings;
 using MS00000_TemplateApi.Configurations.AppSettings;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace MS00000_TemplateApi.tests.unit.Configurations.AppSettings;
 
