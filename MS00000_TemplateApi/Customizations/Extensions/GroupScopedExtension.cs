@@ -27,6 +27,9 @@ public static class GroupScopedExtension
         services.AddScoped<SetColumnCustomToSerilogMiddleware>();
         services.AddScoped<IConfigAppRepository, ConfigAppRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWorkDbAppMs>();
+        services.AddScoped<IDapperExecutor, DapperExecutor>();
+        services.AddScoped<ISqlQueryLoader, SqlQueryLoader>();
+
 
 
 

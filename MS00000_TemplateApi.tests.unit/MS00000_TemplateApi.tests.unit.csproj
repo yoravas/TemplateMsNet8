@@ -10,6 +10,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Configurations\Authentications\**" />
+    <Compile Remove="Model\Loggers\**" />
+    <Compile Remove="Services\Workers\**" />
+    <EmbeddedResource Remove="Configurations\Authentications\**" />
+    <EmbeddedResource Remove="Model\Loggers\**" />
+    <EmbeddedResource Remove="Services\Workers\**" />
+    <None Remove="Configurations\Authentications\**" />
+    <None Remove="Model\Loggers\**" />
+    <None Remove="Services\Workers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoBogus" Version="2.13.1" />
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.16" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
@@ -24,15 +37,6 @@
 
   <ItemGroup>
     <Using Include="Xunit" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Configurations\Authentications\" />
-    <Folder Include="Controllers\V1\" />
-    <Folder Include="Customizations\Extensions\" />
-    <Folder Include="Model\Loggers\" />
-    <Folder Include="Services\Application\" />
-    <Folder Include="Services\Workers\SqlServerLogger\" />
   </ItemGroup>
 
 </Project>
