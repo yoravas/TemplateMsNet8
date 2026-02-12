@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
-namespace MS00000_TemplateApi.Configurations.AppSettings;
+namespace MS00000_TemplateApi.Configurations.Appsettings;
 public static class PlaceholdersComfig
 {
     public static void SetPlaceholderConfig(WebApplicationBuilder builder)
