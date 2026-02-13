@@ -9,6 +9,54 @@ paths:
       tags:
         - ConfigApp
       responses:
+        '406':
+          description: Not Acceptable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnDetailsApiResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnDetailsApiResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnDetailsApiResponse'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnDetailsApiResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnDetailsApiResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnDetailsApiResponse'
+        '502':
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnDetailsApiResponse'
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnDetailsApiResponse'
         '200':
           description: OK
           content:
@@ -34,4 +82,23 @@ components:
           items:
             $ref: '#/components/schemas/ConfigAppDto'
           nullable: true
+      additionalProperties: false
+    ReturnDetails:
+      type: object
+      properties:
+        StatusCode:
+          type: integer
+          format: int32
+        DescStatusCode:
+          type: string
+          nullable: true
+        Message:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ReturnDetailsApiResponse:
+      type: object
+      properties:
+        Response:
+          $ref: '#/components/schemas/ReturnDetails'
       additionalProperties: false

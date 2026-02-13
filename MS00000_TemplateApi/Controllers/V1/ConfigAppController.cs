@@ -1,7 +1,6 @@
 ﻿using Asp.Versioning;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using MS00000_TemplateApi.Customizations.Attributes;
 
 using MS00000_TemplateApi.Model.Application;
 using MS00000_TemplateApi.Model.Application.DTOs;
@@ -11,11 +10,20 @@ namespace MS00000_TemplateApi.Controllers.V1;
 [Route("api/v{version:apiVersion}/[controller]")]
 [ApiController]
 [ApiVersion("1.0")]
+[ProducesResponseType(typeof(ApiResponse<ReturnDetails>), StatusCodes.Status406NotAcceptable)]
+[ProducesResponseType(typeof(ApiResponse<ReturnDetails>), StatusCodes.Status404NotFound)]
+[ProducesResponseType(typeof(ApiResponse<ReturnDetails>), StatusCodes.Status401Unauthorized)]
+[ProducesResponseType(typeof(ApiResponse<ReturnDetails>), StatusCodes.Status415UnsupportedMediaType)]
+[ProducesResponseType(typeof(ApiResponse<ReturnDetails>), StatusCodes.Status400BadRequest)]
+[ProducesResponseType(typeof(ApiResponse<ReturnDetails>), StatusCodes.Status500InternalServerError)]
+[ProducesResponseType(typeof(ApiResponse<ReturnDetails>), StatusCodes.Status502BadGateway)]
+[ProducesResponseType(typeof(ApiResponse<ReturnDetails>), StatusCodes.Status503ServiceUnavailable)]
+[ProducesResponseType(typeof(ApiResponse<ReturnDetails>), StatusCodes.Status406NotAcceptable)]
 public class ConfigAppController(IMediator mediator, ILogger<ConfigAppController> logger) : ApiBaseController
 {
+
     [HttpGet]
     [ProducesResponseType(typeof(ApiResponse<List<ConfigAppDto>>), StatusCodes.Status200OK)]
-    [ResponseOpenApi]
     [Route("GetConfigApp")]
     [Produces("application/json")]
     public async Task<IActionResult> GetConfigAppAsync()
@@ -37,3 +45,4 @@ public class ConfigAppController(IMediator mediator, ILogger<ConfigAppController
 
     }
 }
+
