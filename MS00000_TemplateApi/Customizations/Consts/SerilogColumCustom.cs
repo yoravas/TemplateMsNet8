@@ -6,5 +6,7 @@ public class SerilogColumCustom
     public const string RequestPath = "RequestPath";
     public const string AdditionalData = "AdditionalData";
     public const string FilePath = "FilePath";
+    public const string TraceId = "TraceId";
+    public const string SpanId = "SpanId";
 
 }

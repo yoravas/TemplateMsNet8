@@ -28,11 +28,11 @@ public class StatusCodeMiddleware : IMiddleware
             if (!context.Response.HasStarted &&
                 registry.TryGet(context.Response.StatusCode, out IStatusCodeStrategy? strategy))
             {
-                logger.LogDebugCustom($"Status code gestito {context.Response.StatusCode} con la strategy {strategy.GetType().Name}");
+                logger.LogWarningCustom($"Status code gestito {context.Response.StatusCode} con la strategy {strategy.GetType().Name}");
                 await strategy.HandleAsync(context, originalBody, buffer, context.RequestAborted);
                 return; // evita la copia del buffer originale
             }
-            logger.LogDebugCustom($"Nessuna strategy trovata per lo status code {context.Response.StatusCode}, inviata la response orginale.");
+            logger.LogWarningCustom($"Nessuna strategy trovata per lo status code {context.Response.StatusCode}, inviata la response orginale.");
             // Caso standard: manda al client quello che è stato scritto nel buffer
             await CopyBufferToOriginalAsync(context, originalBody, buffer);
         }

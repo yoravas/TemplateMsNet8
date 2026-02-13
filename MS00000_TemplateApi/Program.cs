@@ -83,7 +83,9 @@ public class Program
                 StandardColumn.Message,
                 StandardColumn.MessageTemplate,
                 StandardColumn.Exception,
-                StandardColumn.Properties
+                StandardColumn.Properties,
+                StandardColumn.TraceId,
+                StandardColumn.SpanId
             }
         };
 
@@ -109,15 +111,19 @@ public class Program
             .MinimumLevel.Override("System", LogEventLevel.Error)
             .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Error)
             .Enrich.FromLogContext()
+            .Enrich.WithThreadId()
+            .Enrich.WithProcessId()
+            .Enrich.WithEnvironmentName()
+            .Enrich.WithMachineName()
             .Enrich.WithProperty("Application", "TemplateApi")
             .Enrich.WithProperty("Environment", "Production")
-            .Enrich.WithProperty(SerilogColumCustom.CorrelationId, Ulid.NewUlid().ToString())        // valore di default
+            .Enrich.WithProperty(SerilogColumCustom.CorrelationId, Ulid.NewUlid().ToString())
             .Enrich.WithProperty(SerilogColumCustom.Metodo, LoggerInfoHelper.LogUsedItemInfo())
 
             // Console (solo Error)
             .WriteTo.Console(
                 restrictedToMinimumLevel: LogEventLevel.Error,
-                outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {SourceContext} {Message:lj}{NewLine}{Exception}"
+                outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] [TraceId={TraceId} SpanId={SpanId}] {Message:lj}{NewLine}{Exception}"
             )
 
             // SQL Server tramite Async
