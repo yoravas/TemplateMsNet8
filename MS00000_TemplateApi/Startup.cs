@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.HttpOverrides;
+﻿using Flowify.Extensions;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
@@ -10,7 +11,6 @@ using MS00000_TemplateApi.Customizations.Helpers;
 using MS00000_TemplateApi.Model.Options;
 using Polly;
 using System.Globalization;
-using System.Reflection;
 
 namespace MS00000_TemplateApi;
 public class Startup(IConfiguration configuration, IWebHostEnvironment env)
@@ -76,7 +76,9 @@ public class Startup(IConfiguration configuration, IWebHostEnvironment env)
                 options.AttemptTimeout.Timeout = TimeSpan.FromSeconds(15);
             });
 
-        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+        //services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
+        services.AddFlowify(typeof(Program).Assembly);
 
         //Transient
         services.GroupTransient();

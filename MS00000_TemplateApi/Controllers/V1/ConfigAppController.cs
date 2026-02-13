@@ -1,5 +1,5 @@
 ﻿using Asp.Versioning;
-using MediatR;
+using Flowify.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
 using MS00000_TemplateApi.Model.Application;

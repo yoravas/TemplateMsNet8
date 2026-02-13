@@ -1,4 +1,4 @@
-﻿using MediatR;
+﻿using Flowify.Contracts;
 using MS00000_TemplateApi.Model.Application.DTOs;
 
 namespace MS00000_TemplateApi.Services.Application.ConfigApp.Queries.ConfigApp.GetAll;

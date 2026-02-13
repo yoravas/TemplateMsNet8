@@ -1,4 +1,4 @@
-﻿using MediatR;
+﻿using Flowify.Contracts;
 using MS00000_TemplateApi.Model.Application.DTOs;
 using MS00000_TemplateApi.Services.Infrastracture.Data.SqlServer.Repository.ConfigApp;
 using System.Text.Json;
