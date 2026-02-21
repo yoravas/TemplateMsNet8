@@ -1,4 +1,4 @@
-﻿using MediatR;
+﻿using Flowify.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -36,7 +36,7 @@ public class ConfigAppControllerTests
         };
 
         // Act
-        IActionResult result = await controller.GetConfigAppAsync();
+        IActionResult result = await controller.GetConfigAppAsync(new CancellationToken(false));
 
         // Assert
         Assert.IsType<OkObjectResult>(result);
@@ -62,7 +62,7 @@ public class ConfigAppControllerTests
         };
 
         // Act
-        IActionResult result = await controller.GetConfigAppAsync();
+        IActionResult result = await controller.GetConfigAppAsync(new CancellationToken(false));
 
         // Assert
         Assert.IsType<NoContentResult>(result);

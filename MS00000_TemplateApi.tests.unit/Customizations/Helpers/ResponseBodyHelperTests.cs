@@ -44,7 +44,7 @@ public class ResponseBodyHelperTests
             .Generate();
 
         // Act
-        await ResponseBodyHelper.FlushBuffer(context, buffer, payload);
+        await ResponseBodyHelper.FlushBufferAsync(context, buffer, payload);
 
         // Assert
         Assert.True(buffer.Length > 0);

@@ -26,10 +26,10 @@ public class ConfigAppController(IMediator mediator, ILogger<ConfigAppController
     [ProducesResponseType(typeof(ApiResponse<List<ConfigAppDto>>), StatusCodes.Status200OK)]
     [Route("GetConfigApp")]
     [Produces("application/json")]
-    public async Task<IActionResult> GetConfigAppAsync()
+    public async Task<IActionResult> GetConfigAppAsync(CancellationToken cancellationToken)
     {
         logger.LogInformationCustom("GetConfigAppAsync called");
-        List<ConfigAppDto> configList = await mediator.Send(new GetConfigAppAllQuery());
+        List<ConfigAppDto> configList = await mediator.Send(new GetConfigAppAllQuery(), cancellationToken);
 
         logger.LogDebugCustom($"Lista configurazione recuperata: {configList.Count} items", additionalData: configList);
         if (configList.Any())

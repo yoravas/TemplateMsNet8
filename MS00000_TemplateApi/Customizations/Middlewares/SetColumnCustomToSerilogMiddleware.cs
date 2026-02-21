@@ -20,10 +20,10 @@ public class SetColumnCustomToSerilogMiddleware : IMiddleware
     }
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
-        Activity? activity = Activity.Current;
+        //Activity? activity = Activity.Current;
 
-        string? traceId = activity?.TraceId.ToString();
-        string? spanId = activity?.SpanId.ToString();
+        //string? traceId = activity?.TraceId.ToString();
+        //string? spanId = activity?.SpanId.ToString();
 
 
         string correlationId = correlationIdAccessorService.CorrelationId;

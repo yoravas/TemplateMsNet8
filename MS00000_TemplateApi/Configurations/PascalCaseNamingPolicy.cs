@@ -12,6 +12,6 @@ public class PascalCaseNamingPolicy : JsonNamingPolicy
         }
 
         // Converti il primo carattere in maiuscolo.
-        return char.ToUpper(name[0]) + name.Substring(1);
+        return $"{char.ToUpper(name[0])}{name.Substring(1)}";
     }
 }

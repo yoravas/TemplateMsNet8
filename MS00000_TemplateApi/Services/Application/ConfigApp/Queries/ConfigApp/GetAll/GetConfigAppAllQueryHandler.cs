@@ -18,14 +18,15 @@ public class GetConfigAppAllQueryHandler : IRequestHandler<GetConfigAppAllQuery,
     }
     public async Task<List<ConfigAppDto>> Handle(GetConfigAppAllQuery request, CancellationToken cancellationToken)
     {
-        IEnumerable<ConfigAppDto> result = await configAppRepository.GetAllAsync();
-
+        IEnumerable<ConfigAppDto> result = await configAppRepository.GetAllAsync(cancellationToken);
 
         if (result is null)
             return new List<ConfigAppDto>();
 
         string jsonResult = JsonSerializer.Serialize(result);
+
         logger.LogDebugCustom($"GetConfigAppAllQueryHandler {jsonResult}", additionalData: result);
+
         return result.ToList();
 
     }

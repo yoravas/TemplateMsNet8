@@ -3,5 +3,5 @@
 namespace MS00000_TemplateApi.Services.Infrastracture.Data.SqlServer.Repository.ConfigApp;
 public interface IConfigAppRepository
 {
-    Task<IEnumerable<ConfigAppDto>> GetAllAsync();
+    Task<IEnumerable<ConfigAppDto>> GetAllAsync(CancellationToken cancellationToken);
 }

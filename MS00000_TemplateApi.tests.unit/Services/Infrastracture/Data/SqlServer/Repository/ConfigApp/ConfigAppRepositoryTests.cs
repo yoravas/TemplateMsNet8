@@ -39,7 +39,7 @@ public class ConfigAppRepositoryTests
         ConfigAppRepository repo = new(factoryMock.Object, execMock.Object, loaderMock.Object);
 
         // Act
-        IEnumerable<ConfigAppDto> result = await repo.GetAllAsync();
+        IEnumerable<ConfigAppDto> result = await repo.GetAllAsync(new CancellationToken(false));
 
         // Assert
         Assert.NotNull(result);

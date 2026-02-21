@@ -4,8 +4,8 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 
 
-namespace MS00000_TemplateApi.Configurations.Appsettings;
-public static class PlaceholdersComfig
+namespace MS00000_TemplateApi.Configurations.AppSettings;
+public static class PlaceholdersConfig
 {
     public static void SetPlaceholderConfig(WebApplicationBuilder builder)
     {
@@ -52,17 +52,17 @@ public static class PlaceholdersComfig
 
     private static string SetPswDb(KeyValuePair<string, JsonElement> kvp, string asString)
     {
-        if (kvp.Key == PswPlaceholderEnviroment.AppMsDB)
+        if (string.Compare(kvp.Key, PswPlaceholderEnvironment.AppMsDB, StringComparison.OrdinalIgnoreCase) == 0)
         {
-            asString = string.Format(asString, Environment.GetEnvironmentVariable(PswPlaceholderEnviroment.PswAppMsDB));
+            asString = string.Format(asString, Environment.GetEnvironmentVariable(PswPlaceholderEnvironment.PswAppMsDB));
         }
-        else if (kvp.Key == PswPlaceholderEnviroment.LogDatabaseDB)
+        else if (string.Compare(kvp.Key, PswPlaceholderEnvironment.LogDatabaseDB, StringComparison.OrdinalIgnoreCase) == 0)
         {
-            asString = string.Format(asString, Environment.GetEnvironmentVariable(PswPlaceholderEnviroment.PswLogDatabaseDB));
+            asString = string.Format(asString, Environment.GetEnvironmentVariable(PswPlaceholderEnvironment.PswLogDatabaseDB));
         }
-        else if (kvp.Key == PswPlaceholderEnviroment.SessionCacheDB)
+        else if (string.Compare(kvp.Key, PswPlaceholderEnvironment.SessionCacheDB, StringComparison.OrdinalIgnoreCase) == 0)
         {
-            asString = string.Format(asString, Environment.GetEnvironmentVariable(PswPlaceholderEnviroment.PswSessionCacheDB));
+            asString = string.Format(asString, Environment.GetEnvironmentVariable(PswPlaceholderEnvironment.PswSessionCacheDB));
         }
 
 

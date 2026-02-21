@@ -26,7 +26,7 @@
       "environmentVariables": {
         "PSW_SESSION_CACHE_DB": "13212aspNET!",
         "PSW_LOGDATABASE_DB": "13212aspNET!",
-        "PSW_APP-MS_DB": "13212aspNET!"
+        "PSW_APP_MS_DB": "13212aspNET!"
       }
     },
     "WSL": {

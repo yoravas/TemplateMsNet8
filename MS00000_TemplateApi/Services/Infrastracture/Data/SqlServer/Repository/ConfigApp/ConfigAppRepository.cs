@@ -19,11 +19,11 @@ public class ConfigAppRepository : RepositoryBase, IConfigAppRepository
         this.sqlQueryLoader = sqlQueryLoader;
     }
 
-    public async Task<IEnumerable<ConfigAppDto>> GetAllAsync()
+    public async Task<IEnumerable<ConfigAppDto>> GetAllAsync(CancellationToken cancellationToken)
     {
         using IDbConnection conn = Factory.Create();
         string sql = sqlQueryLoader.Load("Queries.ConfigApp.SelectAll.sql");
-        IEnumerable<ConfigAppDto> rows = await dapperExecutor.QueryAsync<ConfigAppDto>(conn, sql);
+        IEnumerable<ConfigAppDto> rows = await dapperExecutor.QueryAsync<ConfigAppDto>(conn, sql, cancellationToken: cancellationToken);
         return rows;
     }
 }

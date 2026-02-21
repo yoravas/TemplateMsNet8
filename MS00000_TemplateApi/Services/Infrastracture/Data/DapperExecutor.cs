@@ -17,12 +17,15 @@ public sealed class DapperExecutor : IDapperExecutor
         CommandType? commandType = null,
         CancellationToken cancellationToken = default)
     {
-        IEnumerable<T> rows = await connection.QueryAsync<T>(
-            sql: sql,
-            param: param,
-            transaction: transaction,
-            commandTimeout: commandTimeout,
-            commandType: commandType);
+        CommandDefinition cmd = new(
+            sql,
+            param,
+            transaction,
+            commandTimeout, 
+            commandType,
+            cancellationToken: cancellationToken);
+
+        IEnumerable<T> rows = await connection.QueryAsync<T>(cmd);
         return rows;
     }
 
@@ -35,12 +38,15 @@ public sealed class DapperExecutor : IDapperExecutor
         CommandType? commandType = null,
         CancellationToken cancellationToken = default)
     {
-        T? row = await connection.QuerySingleOrDefaultAsync<T>(
-            sql: sql,
-            param: param,
-            transaction: transaction,
-            commandTimeout: commandTimeout,
-            commandType: commandType);
+        CommandDefinition cmd = new(
+            sql,
+            param,
+            transaction,
+            commandTimeout,
+            commandType,
+            cancellationToken: cancellationToken);
+
+        T? row = await connection.QuerySingleOrDefaultAsync<T>(cmd);
         return row;
     }
 
@@ -53,12 +59,15 @@ public sealed class DapperExecutor : IDapperExecutor
         CommandType? commandType = null,
         CancellationToken cancellationToken = default)
     {
-        int affected = await connection.ExecuteAsync(
-            sql: sql,
-            param: param,
-            transaction: transaction,
-            commandTimeout: commandTimeout,
-            commandType: commandType);
+        CommandDefinition cmd = new(
+            sql,
+            param,
+            transaction,
+            commandTimeout,
+            commandType,
+            cancellationToken: cancellationToken);
+
+        int affected = await connection.ExecuteAsync(cmd);
         return affected;
     }
 }

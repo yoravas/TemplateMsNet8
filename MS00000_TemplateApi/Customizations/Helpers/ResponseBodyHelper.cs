@@ -12,7 +12,7 @@ public static class ResponseBodyHelper
         return buffer;
     }
 
-    public static async Task FlushBuffer(HttpContext context, MemoryStream buffer, ApiResponse<ReturnDetails> payload)
+    public static async Task FlushBufferAsync(HttpContext context, MemoryStream buffer, ApiResponse<ReturnDetails> payload)
     {
         await JsonSerializer.SerializeAsync(buffer, payload, cancellationToken: context.RequestAborted);
         await buffer.FlushAsync(context.RequestAborted);
