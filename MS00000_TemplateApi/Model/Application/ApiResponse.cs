@@ -1,12 +1,13 @@
-﻿namespace MS00000_TemplateApi.Model.Application;
+﻿using System.Text.Json.Serialization;
+
+namespace MS00000_TemplateApi.Model.Application;
 public record ApiResponse<T> where T : class
 {
-    public ApiResponse(T obj)
+    [JsonConstructor]
+    public ApiResponse([property: JsonPropertyName("Response")] T response)
     {
-        Response = obj;
-
+        Response = response;
     }
 
     public T Response { get; set; }
-
 }

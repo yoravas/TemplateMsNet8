@@ -7,6 +7,7 @@ using MS00000_TemplateApi.Model.Application.DTOs;
 using MS00000_TemplateApi.Services.Application.ConfigApp.Queries.ConfigApp.GetAll;
 
 namespace MS00000_TemplateApi.Controllers.V1;
+
 [Route("api/v{version:apiVersion}/[controller]")]
 [ApiController]
 [ApiVersion("1.0")]
@@ -21,13 +22,19 @@ namespace MS00000_TemplateApi.Controllers.V1;
 [ProducesResponseType(typeof(ApiResponse<ReturnDetails>), StatusCodes.Status406NotAcceptable)]
 public class ConfigAppController(IMediator mediator, ILogger<ConfigAppController> logger) : ApiBaseController
 {
-
     [HttpGet]
     [ProducesResponseType(typeof(ApiResponse<List<ConfigAppDto>>), StatusCodes.Status200OK)]
     [Route("GetConfigApp")]
     [Produces("application/json")]
     public async Task<IActionResult> GetConfigAppAsync(CancellationToken cancellationToken)
     {
+        //return StatusCode(406, new ApiResponse<ReturnDetails>(new ReturnDetails()
+        //{
+        //    StatusCode = 406,
+        //    Message = "Not Acceptable: la richiesta non è accettabile.",
+        //    DescStatusCode = "La richiesta non è accettabile. Verifica che l'header 'Accept' sia corretto e supportato dall'endpoint."
+        //}));
+
         logger.LogInformationCustom("GetConfigAppAsync called");
         List<ConfigAppDto> configList = await mediator.Send(new GetConfigAppAllQuery(), cancellationToken);
 
@@ -42,7 +49,5 @@ public class ConfigAppController(IMediator mediator, ILogger<ConfigAppController
 
             return NoContent();
         }
-
     }
 }
-
