@@ -2,12 +2,7 @@
 using Moq;
 using MS00000_TemplateApi.Model.Options;
 using MS00000_TemplateApi.Services.Infrastracture.Api;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MS00000_TemplateApi.tests.unit.Services.Infrastracture.Api;
 
@@ -41,7 +36,7 @@ public class HttpClientServiceTests
             .Setup(x => x.CreateClient("ServerApi"))
             .Returns(client);
 
-        ServerApiOption option = new();
+        ServerApiOption option = new() { BaseUrl = "https://example.com" };
         Mock<IOptionsMonitor<ServerApiOption>> optionsMock = new();
         optionsMock
             .Setup(x => x.CurrentValue)
@@ -59,4 +54,3 @@ public class HttpClientServiceTests
         Assert.NotNull(result);
     }
 }
-

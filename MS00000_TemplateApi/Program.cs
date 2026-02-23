@@ -12,7 +12,6 @@ namespace MS00000_TemplateApi;
 
 public class Program
 {
-
     public static void Main(string[] args)
     {
         SetSelfLogSerilog();
@@ -21,12 +20,10 @@ public class Program
 
         PlaceholdersConfig.SetPlaceholderConfig(builder);
 
-
         SetSerilog(builder);
         builder.Host.UseSerilog();
 
-
-        Startup startup = new(builder.Configuration, builder.Environment);
+        Startup startup = new(builder.Configuration);
         startup.ConfigureServices(builder.Services);
 
         WebApplication app = builder.Build();
@@ -39,7 +36,6 @@ public class Program
                 diagCtx.Set(SerilogColumCustom.RequestPath, $"{httpCtx.Request.Method} {httpCtx.Request.Path}");
                 diagCtx.Set(SerilogColumCustom.Metodo, LoggerInfoHelper.LogUsedItemInfo());
             };
-
         });
 
         startup.Configure(app);
@@ -52,7 +48,6 @@ public class Program
         catch (Exception ex)
         {
             Log.Fatal(ex, "Application start-up failed");
-
         }
         finally
         {
@@ -86,16 +81,15 @@ public class Program
                 StandardColumn.Properties,
                 StandardColumn.TraceId,
                 StandardColumn.SpanId
+            },
+            AdditionalColumns = new Collection<SqlColumn>
+            {
+                new(SerilogColumCustom.CorrelationId, SqlDbType.Char) { DataLength = 26, AllowNull = false },
+                new(SerilogColumCustom.Metodo, SqlDbType.NVarChar) { DataLength = 1000, AllowNull = false },
+                new(SerilogColumCustom.RequestPath, SqlDbType.NVarChar) { DataLength = -1, AllowNull = true },
+                new(SerilogColumCustom.AdditionalData, SqlDbType.NVarChar) { DataLength = -1, AllowNull = true },
+                new(SerilogColumCustom.FilePath, SqlDbType.NVarChar) { DataLength = -1, AllowNull = true }
             }
-        };
-
-        columnOptions.AdditionalColumns = new Collection<SqlColumn>
-        {
-            new SqlColumn(SerilogColumCustom.CorrelationId, SqlDbType.Char) { DataLength = 26, AllowNull = false },
-            new SqlColumn(SerilogColumCustom.Metodo, SqlDbType.NVarChar) { DataLength = 1000, AllowNull = false },
-            new SqlColumn(SerilogColumCustom.RequestPath, SqlDbType.NVarChar) { DataLength = -1, AllowNull = true },
-            new SqlColumn(SerilogColumCustom.AdditionalData, SqlDbType.NVarChar) { DataLength = -1, AllowNull = true },
-            new SqlColumn(SerilogColumCustom.FilePath, SqlDbType.NVarChar) { DataLength = -1, AllowNull = true }
         };
 
         string connectionString = builder.Configuration.GetSection("ConnectionStrings").GetSection("LogDatabase").GetValue<string>("Connection") ?? string.Empty;
@@ -142,10 +136,8 @@ public class Program
                 columnOptions: columnOptions
             ))
             .CreateLogger();
-
-
-
     }
+
     private static void SetSelfLogSerilog() => SelfLog.Enable(msg =>
     {
         Console.Error.WriteLine($"[SERILOG-SELFLOG] {msg}");
@@ -159,9 +151,4 @@ public class Program
             Console.Error.WriteLine("[SERILOG-SELFLOG] Unable to write to serilog-selflog.txt");
         }
     });
-
-
-
-
-
 }

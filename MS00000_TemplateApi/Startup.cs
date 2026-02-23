@@ -13,9 +13,9 @@ using Polly;
 using System.Globalization;
 
 namespace MS00000_TemplateApi;
-public class Startup(IConfiguration configuration, IWebHostEnvironment env)
-{
 
+public class Startup(IConfiguration configuration)
+{
     public void ConfigureServices(IServiceCollection services)
     {
         services.ToAddControllers();
@@ -48,7 +48,6 @@ public class Startup(IConfiguration configuration, IWebHostEnvironment env)
             ServerApiOption opt = sp.GetRequiredService<IOptionsMonitor<ServerApiOption>>().CurrentValue;
 
             client.BaseAddress = new Uri(opt.BaseUrl);
-
         }).AddStandardResilienceHandler(options =>
             {
                 // Timeout complessivo della singola request (inclusi i retry)
@@ -107,7 +106,6 @@ public class Startup(IConfiguration configuration, IWebHostEnvironment env)
             options.Cookie.HttpOnly = true;
             options.Cookie.IsEssential = true;
         });
-
     }
 
     public void Configure(WebApplication app)
@@ -138,16 +136,12 @@ public class Startup(IConfiguration configuration, IWebHostEnvironment env)
             ForwardedHeaders = ForwardedHeaders.All
         });
 
-
         app.RemoveInsecureHeaders();
 
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapControllers();
-            endpoints.MapHealthChecks("/actuator/health/liveness");
-            endpoints.MapHealthChecks("/actuator/health/readiness");
-        });
-
+        // Registrazione delle route a livello superiore, come suggerito da ASP0014
+        app.MapControllers();
+        app.MapHealthChecks("/actuator/health/liveness");
+        app.MapHealthChecks("/actuator/health/readiness");
     }
 
     private static void SetCulture(IServiceCollection services)

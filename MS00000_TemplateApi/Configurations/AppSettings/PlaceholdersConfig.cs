@@ -1,15 +1,13 @@
-﻿using MS00000_TemplateApi.Configurations.AppSettings;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
-
 namespace MS00000_TemplateApi.Configurations.AppSettings;
+
 public static class PlaceholdersConfig
 {
     public static void SetPlaceholderConfig(WebApplicationBuilder builder)
     {
-
         // Esegui solo in Development
         if (!builder.Environment.IsDevelopment())
             return;
@@ -35,7 +33,6 @@ public static class PlaceholdersConfig
         if (dict is null)
             return result;
 
-
         foreach (KeyValuePair<string, JsonElement> kvp in dict)
         {
             if (TryJsonElementToString(kvp.Value, out string? asString))
@@ -43,11 +40,9 @@ public static class PlaceholdersConfig
                 asString = SetPswDb(kvp, asString);
                 result[kvp.Key] = asString;
             }
-
         }
 
         return result;
-
     }
 
     private static string SetPswDb(KeyValuePair<string, JsonElement> kvp, string asString)
@@ -64,7 +59,6 @@ public static class PlaceholdersConfig
         {
             asString = string.Format(asString, Environment.GetEnvironmentVariable(PswPlaceholderEnvironment.PswSessionCacheDB));
         }
-
 
         return asString;
     }
@@ -96,8 +90,8 @@ public static class PlaceholdersConfig
         }
 
         // Converti a Dictionary<string,string> per AddInMemoryCollection
-        Dictionary<string, string> notNull = new(StringComparer.OrdinalIgnoreCase);
-        foreach ((string k, string v) in dict)
+        Dictionary<string, string?> notNull = new(StringComparer.OrdinalIgnoreCase);
+        foreach ((string k, string? v) in dict)
         {
             if (v is not null)
                 notNull[k] = v;
@@ -112,6 +106,7 @@ public static class PlaceholdersConfig
             case JsonValueKind.String:
                 value = element.GetString() ?? string.Empty;
                 return true;
+
             case JsonValueKind.Number:
                 if (element.TryGetInt64(out long l))
                 { value = l.ToString(CultureInfo.InvariantCulture); return true; }
@@ -123,16 +118,20 @@ public static class PlaceholdersConfig
                 { value = d.ToString("R", CultureInfo.InvariantCulture); return true; }
                 value = element.ToString();
                 return true;
+
             case JsonValueKind.True:
                 value = bool.TrueString;
                 return true;
+
             case JsonValueKind.False:
                 value = bool.FalseString;
                 return true;
+
             case JsonValueKind.Array:
             case JsonValueKind.Object:
                 value = JsonSerializer.Serialize(element);
                 return true;
+
             default:
                 value = string.Empty;
                 return false;

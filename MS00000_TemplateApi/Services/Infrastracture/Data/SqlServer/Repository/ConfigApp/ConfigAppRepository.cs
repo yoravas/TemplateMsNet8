@@ -1,5 +1,4 @@
-﻿using Dapper;
-using MS00000_TemplateApi.Customizations.Consts;
+﻿using MS00000_TemplateApi.Customizations.Consts;
 using MS00000_TemplateApi.Model.Application.DTOs;
 using System.Data;
 
@@ -21,10 +20,9 @@ public class ConfigAppRepository : RepositoryBase, IConfigAppRepository
 
     public async Task<IEnumerable<ConfigAppDto>> GetAllAsync(CancellationToken cancellationToken)
     {
-        using IDbConnection conn = Factory.Create();
+        using IDbConnection conn = Factory?.Create() ?? throw new InvalidOperationException("Nessuna connessione valida disponibile.");
         string sql = sqlQueryLoader.Load("Queries.ConfigApp.SelectAll.sql");
         IEnumerable<ConfigAppDto> rows = await dapperExecutor.QueryAsync<ConfigAppDto>(conn, sql, cancellationToken: cancellationToken);
         return rows;
     }
 }
-

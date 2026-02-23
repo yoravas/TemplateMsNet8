@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Primitives;
 
 namespace MS00000_TemplateApi.Customizations.Middlewares;
+
 public class RemoveInsecureHeadersMiddleware : IMiddleware
 {
     private readonly ILogger<RemoveInsecureHeadersMiddleware> logger;
@@ -9,6 +10,7 @@ public class RemoveInsecureHeadersMiddleware : IMiddleware
     {
         this.logger = logger;
     }
+
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
         context.Response.OnStarting((state) =>
@@ -25,11 +27,8 @@ public class RemoveInsecureHeadersMiddleware : IMiddleware
             logger.LogInformationCustom("Intestazioni di sicurezza aggiunte alla risposta HTTP.");
 
             return Task.CompletedTask;
-
-        }, null);
+        }, context);
 
         await next(context);
     }
-
 }
-
