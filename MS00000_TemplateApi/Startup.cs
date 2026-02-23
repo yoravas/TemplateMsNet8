@@ -32,8 +32,6 @@ public class Startup(IConfiguration configuration)
 
         services.ToAddSwaggerGen();
 
-        //services.ConfigureCors();
-
         services.Configure<ApiBehaviorOptions>(opt =>
         {
             opt.SuppressModelStateInvalidFilter = true;
