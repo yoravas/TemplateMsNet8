@@ -4,14 +4,9 @@ using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Routing;
-using Microsoft.Extensions.Logging;
 using Moq;
 using MS00000_TemplateApi.Customizations.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MS00000_TemplateApi.Services.Application.Logger;
 
 namespace MS00000_TemplateApi.tests.unit.Customizations.Attributes;
 
@@ -21,7 +16,7 @@ public class ModelStateValidationFilterAttributeTests
     public void OnActionExecuting_ModelStateInvalid_Returns422()
     {
         // Arrange
-        Mock<ILogger<ModelStateValidationFilterAttribute>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         ModelStateValidationFilterAttribute filter = new(loggerMock.Object);
 
         DefaultHttpContext ctx = new();
@@ -50,7 +45,7 @@ public class ModelStateValidationFilterAttributeTests
     public void OnActionExecuting_ModelStateValid_NoResult()
     {
         // Arrange
-        Mock<ILogger<ModelStateValidationFilterAttribute>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         ModelStateValidationFilterAttribute filter = new(loggerMock.Object);
 
         DefaultHttpContext ctx = new();
@@ -78,7 +73,7 @@ public class ModelStateValidationFilterAttributeTests
     public void OnActionExecuted_Coperto()
     {
         // Arrange
-        Mock<ILogger<ModelStateValidationFilterAttribute>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         ModelStateValidationFilterAttribute filter = new(loggerMock.Object);
 
         DefaultHttpContext ctx = new();

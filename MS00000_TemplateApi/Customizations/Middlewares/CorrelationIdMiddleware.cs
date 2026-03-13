@@ -1,14 +1,17 @@
 ﻿using MS00000_TemplateApi.Customizations.Consts;
+using MS00000_TemplateApi.Services.Application.Logger;
 
 namespace MS00000_TemplateApi.Customizations.Middlewares;
+
 public class CorrelationIdMiddleware : IMiddleware
 {
-    private readonly ILogger<CorrelationIdMiddleware> logger;
+    private readonly IApplicationLogger logger;
 
-    public CorrelationIdMiddleware(ILogger<CorrelationIdMiddleware> logger)
+    public CorrelationIdMiddleware(IApplicationLogger logger)
     {
         this.logger = logger;
     }
+
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
         string correlationId = context.Request.Headers.ContainsKey(HeadersCustom.HeaderCorrelationID)
@@ -33,8 +36,5 @@ public class CorrelationIdMiddleware : IMiddleware
         //});
 
         await next(context);
-
-
-
     }
 }

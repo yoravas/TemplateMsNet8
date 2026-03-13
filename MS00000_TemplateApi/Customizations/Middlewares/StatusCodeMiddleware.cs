@@ -1,5 +1,6 @@
 ﻿using MS00000_TemplateApi.Customizations.Strategies.StatusCode;
 using MS00000_TemplateApi.Model.Application;
+using MS00000_TemplateApi.Services.Application.Logger;
 using System.Text;
 using System.Text.Json;
 
@@ -7,10 +8,10 @@ namespace MS00000_TemplateApi.Customizations.Middlewares;
 
 public class StatusCodeMiddleware : IMiddleware
 {
-    private readonly ILogger<StatusCodeMiddleware> logger;
+    private readonly IApplicationLogger logger;
     private readonly IStatusCodeStrategyRegistry registry;
 
-    public StatusCodeMiddleware(ILogger<StatusCodeMiddleware> logger,
+    public StatusCodeMiddleware(IApplicationLogger logger,
                                 IStatusCodeStrategyRegistry registry)
     {
         this.logger = logger;

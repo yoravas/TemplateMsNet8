@@ -3,13 +3,16 @@ using Microsoft.Extensions.Primitives;
 using MS00000_TemplateApi.Customizations.Enums;
 using MS00000_TemplateApi.Customizations.StatusCodeResults;
 using MS00000_TemplateApi.Model.Application;
+using MS00000_TemplateApi.Services.Application.Logger;
 using System.Net.Mime;
 
 namespace MS00000_TemplateApi.Customizations.Attributes;
-public class HeaderAcceptValidationFilterAttribute(ILogger<HeaderAcceptValidationFilterAttribute> logger) : IActionFilter
+
+public class HeaderAcceptValidationFilterAttribute(IApplicationLogger logger) : IActionFilter
 {
     public void OnActionExecuted(ActionExecutedContext context)
     { }
+
     public void OnActionExecuting(ActionExecutingContext context)
     {
         string endPoint = context.HttpContext.Request.Host.EndPoint(context.HttpContext.Request.Scheme, context.HttpContext.Request.Path);
@@ -34,8 +37,6 @@ public class HeaderAcceptValidationFilterAttribute(ILogger<HeaderAcceptValidatio
                         Message = $"È accettato il Media Type: '{MediaTypeNames.Application.Json}.",
                         DescStatusCode = nameof(StatusCodes.Status406NotAcceptable)
                     }));
-
-
 
                     logger.LogWarningCustom($"Il media type ricevuto non è tra i tipi accettati: {accept}. End point: {endPoint}");
                 }

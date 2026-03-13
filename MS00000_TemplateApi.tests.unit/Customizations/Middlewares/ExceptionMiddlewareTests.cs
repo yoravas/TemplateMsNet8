@@ -1,21 +1,17 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Http;
 using Moq;
-using MS00000_TemplateApi.Customizations.Extensions;
 using MS00000_TemplateApi.Customizations.Middlewares;
-using System.Net;
+using MS00000_TemplateApi.Services.Application.Logger;
 
 namespace MS00000_TemplateApi.tests.unit.Customizations.Middlewares;
+
 public class ExceptionMiddlewareTests
 {
     [Fact]
     public async Task InvokeAsync_SenzaEccezioni_NextChiamato()
     {
         // Arrange
-        Mock<ILogger<ExceptionMiddleware>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         bool nextCalled = false;
         RequestDelegate next = new(async ctx =>
         {
@@ -38,7 +34,7 @@ public class ExceptionMiddlewareTests
     public async Task InvokeAsync_EccezioneConResponseNonAvviata_GeneraPayloadErrore()
     {
         // Arrange
-        Mock<ILogger<ExceptionMiddleware>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
 
         RequestDelegate next = new(ctx =>
         {

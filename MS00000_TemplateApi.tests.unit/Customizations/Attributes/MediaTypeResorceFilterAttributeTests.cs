@@ -3,18 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Routing;
-using Microsoft.Extensions.Logging;
 using Moq;
 using MS00000_TemplateApi.Customizations.Attributes;
 using MS00000_TemplateApi.Customizations.StatusCodeResults;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using MS00000_TemplateApi.Services.Application.Logger;
 using System.Net.Mime;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MS00000_TemplateApi.tests.unit.Customizations.Attributes;
 
@@ -24,7 +18,7 @@ public class MediaTypeResorceFilterAttributeTests
     public void OnResourceExecuting_ContentTypeNull_ReturnsUnsupported()
     {
         // Arrange
-        Mock<ILogger<MediaTypeResorceFilterAttribute>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         MediaTypeResorceFilterAttribute filter = new(loggerMock.Object);
 
         DefaultHttpContext httpContext = new();
@@ -51,7 +45,7 @@ public class MediaTypeResorceFilterAttributeTests
     public void OnResourceExecuting_ContentTypeEmpty_ReturnsUnsupported()
     {
         // Arrange
-        Mock<ILogger<MediaTypeResorceFilterAttribute>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         MediaTypeResorceFilterAttribute filter = new(loggerMock.Object);
 
         DefaultHttpContext httpContext = new();
@@ -78,7 +72,7 @@ public class MediaTypeResorceFilterAttributeTests
     public void OnResourceExecuting_ContentTypeNotJson_ReturnsUnsupported()
     {
         // Arrange
-        Mock<ILogger<MediaTypeResorceFilterAttribute>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         MediaTypeResorceFilterAttribute filter = new(loggerMock.Object);
 
         DefaultHttpContext httpContext = new();
@@ -105,7 +99,7 @@ public class MediaTypeResorceFilterAttributeTests
     public void OnResourceExecuting_ContentTypeJson_NoResult()
     {
         // Arrange
-        Mock<ILogger<MediaTypeResorceFilterAttribute>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         MediaTypeResorceFilterAttribute filter = new(loggerMock.Object);
 
         DefaultHttpContext httpContext = new();
@@ -132,7 +126,7 @@ public class MediaTypeResorceFilterAttributeTests
     public void OnResourceExecuted_Coperto()
     {
         // Arrange
-        Mock<ILogger<MediaTypeResorceFilterAttribute>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         MediaTypeResorceFilterAttribute filter = new(loggerMock.Object);
 
         DefaultHttpContext httpContext = new();
@@ -152,4 +146,3 @@ public class MediaTypeResorceFilterAttributeTests
         Assert.True(true);
     }
 }
-

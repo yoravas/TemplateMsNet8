@@ -1,17 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using MS00000_TemplateApi.Customizations.StatusCodeResults;
 using MS00000_TemplateApi.Model.Application;
+using MS00000_TemplateApi.Services.Application.Logger;
 using System.Net.Http.Headers;
 using System.Net.Mime;
 
 namespace MS00000_TemplateApi.Customizations.Attributes;
-public class MediaTypeResorceFilterAttribute(ILogger<MediaTypeResorceFilterAttribute> logger) : IResourceFilter
+
+public class MediaTypeResorceFilterAttribute(IApplicationLogger logger) : IResourceFilter
 {
     public void OnResourceExecuted(ResourceExecutedContext context)
     { }
+
     public void OnResourceExecuting(ResourceExecutingContext context)
     {
-
         logger.LogInformationCustom("Inizio esecuzione del metodo per la validazione del media type.");
 
         string message = string.Empty;
@@ -31,7 +33,6 @@ public class MediaTypeResorceFilterAttribute(ILogger<MediaTypeResorceFilterAttri
 
         if (!string.Equals(MediaTypeHeaderValue.Parse(context.HttpContext.Request.ContentType).MediaType, MediaTypeNames.Application.Json, StringComparison.OrdinalIgnoreCase))
         {
-
             logger.LogWarningCustom("Media type non supportato.");
 
             context.Result = new UnsupportedMediaTypeObjectResult(new ApiResponse<ReturnDetails>(new ReturnDetails
@@ -41,8 +42,6 @@ public class MediaTypeResorceFilterAttribute(ILogger<MediaTypeResorceFilterAttri
             }));
         }
 
-
         logger.LogInformationCustom("Fine esecuzione del metodo per la validazione del media type.");
-
     }
 }

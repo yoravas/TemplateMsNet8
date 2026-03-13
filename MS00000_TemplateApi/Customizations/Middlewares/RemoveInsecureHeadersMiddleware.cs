@@ -1,12 +1,13 @@
 ﻿using Microsoft.Extensions.Primitives;
+using MS00000_TemplateApi.Services.Application.Logger;
 
 namespace MS00000_TemplateApi.Customizations.Middlewares;
 
 public class RemoveInsecureHeadersMiddleware : IMiddleware
 {
-    private readonly ILogger<RemoveInsecureHeadersMiddleware> logger;
+    private readonly IApplicationLogger logger;
 
-    public RemoveInsecureHeadersMiddleware(ILogger<RemoveInsecureHeadersMiddleware> logger)
+    public RemoveInsecureHeadersMiddleware(IApplicationLogger logger)
     {
         this.logger = logger;
     }

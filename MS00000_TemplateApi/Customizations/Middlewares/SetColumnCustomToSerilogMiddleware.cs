@@ -1,16 +1,17 @@
 ﻿using MS00000_TemplateApi.Customizations.Consts;
 using MS00000_TemplateApi.Services.Application;
+using MS00000_TemplateApi.Services.Application.Logger;
 using Serilog.Context;
-using System.Diagnostics;
 
 namespace MS00000_TemplateApi.Customizations.Middlewares;
+
 public class SetColumnCustomToSerilogMiddleware : IMiddleware
 {
-    private readonly ILogger<SetColumnCustomToSerilogMiddleware> logger;
+    private readonly IApplicationLogger logger;
     private readonly ICorrelationIdAccessorService correlationIdAccessorService;
     private readonly IRequestPathAccessorService requestPathAccessorService;
 
-    public SetColumnCustomToSerilogMiddleware(ILogger<SetColumnCustomToSerilogMiddleware> logger,
+    public SetColumnCustomToSerilogMiddleware(IApplicationLogger logger,
                                                ICorrelationIdAccessorService correlationIdAccessorService,
                                                IRequestPathAccessorService requestPathAccessorService)
     {
@@ -18,13 +19,13 @@ public class SetColumnCustomToSerilogMiddleware : IMiddleware
         this.correlationIdAccessorService = correlationIdAccessorService;
         this.requestPathAccessorService = requestPathAccessorService;
     }
+
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
         //Activity? activity = Activity.Current;
 
         //string? traceId = activity?.TraceId.ToString();
         //string? spanId = activity?.SpanId.ToString();
-
 
         string correlationId = correlationIdAccessorService.CorrelationId;
 
@@ -41,8 +42,5 @@ public class SetColumnCustomToSerilogMiddleware : IMiddleware
         {
             await next(context);
         }
-
-
-
     }
 }

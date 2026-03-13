@@ -10,7 +10,7 @@ using System.Data;
 
 namespace MS00000_TemplateApi;
 
-public class Program
+public static class Program
 {
     public static void Main(string[] args)
     {
@@ -33,7 +33,6 @@ public class Program
             options.EnrichDiagnosticContext = (diagCtx, httpCtx) =>
             {
                 diagCtx.Set(SerilogColumCustom.CorrelationId, Ulid.NewUlid().ToString());
-                diagCtx.Set(SerilogColumCustom.RequestPath, $"{httpCtx.Request.Method} {httpCtx.Request.Path}");
                 diagCtx.Set(SerilogColumCustom.Metodo, LoggerInfoHelper.LogUsedItemInfo());
             };
         });
@@ -84,11 +83,9 @@ public class Program
             },
             AdditionalColumns = new Collection<SqlColumn>
             {
-                new(SerilogColumCustom.CorrelationId, SqlDbType.Char) { DataLength = 26, AllowNull = false },
-                new(SerilogColumCustom.Metodo, SqlDbType.NVarChar) { DataLength = 1000, AllowNull = false },
-                new(SerilogColumCustom.RequestPath, SqlDbType.NVarChar) { DataLength = -1, AllowNull = true },
-                new(SerilogColumCustom.AdditionalData, SqlDbType.NVarChar) { DataLength = -1, AllowNull = true },
-                new(SerilogColumCustom.FilePath, SqlDbType.NVarChar) { DataLength = -1, AllowNull = true }
+                new(SerilogColumCustom.CorrelationId, SqlDbType.Char) { DataLength = 26, AllowNull = true },
+                new(SerilogColumCustom.ApiSerilogID, SqlDbType.BigInt) { AllowNull = true },
+                new(SerilogColumCustom.Metodo, SqlDbType.NVarChar) { DataLength = 1000, AllowNull = true }
             }
         };
 
@@ -117,7 +114,7 @@ public class Program
             // Console (solo Error)
             .WriteTo.Console(
                 restrictedToMinimumLevel: LogEventLevel.Error,
-                outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] [TraceId={TraceId} SpanId={SpanId}] {Message:lj}{NewLine}{Exception}"
+                outputTemplate: "[{Timestamp:dd/MM/yyyy HH:mm:ss} {Level:u3}] [TraceId={TraceId} SpanId={SpanId}] {Message:lj}{NewLine}{Exception}"
             )
 
             // SQL Server tramite Async
@@ -126,7 +123,7 @@ public class Program
                 connectionString: connectionString,
                 sinkOptions: new MSSqlServerSinkOptions
                 {
-                    TableName = "TMP_ApiLogEvents",
+                    TableName = "TMP_ApiLog",
                     SchemaName = "dbo",
                     AutoCreateSqlTable = true,
                     BatchPostingLimit = 50,

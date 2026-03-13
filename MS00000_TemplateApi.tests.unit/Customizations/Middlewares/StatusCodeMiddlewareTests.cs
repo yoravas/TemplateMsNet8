@@ -1,13 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Moq;
 using MS00000_TemplateApi.Customizations.Middlewares;
 using MS00000_TemplateApi.Customizations.Strategies.StatusCode;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using MS00000_TemplateApi.Services.Application.Logger;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace MS00000_TemplateApi.tests.unit.Customizations.Middlewares;
 
@@ -17,7 +13,7 @@ public class StatusCodeMiddlewareTests
     public async Task InvokeAsync_StrategyTrovata_ChiamaHandleERitorna()
     {
         // Arrange
-        Mock<ILogger<StatusCodeMiddleware>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         Mock<IStatusCodeStrategyRegistry> registryMock = new();
         Mock<IStatusCodeStrategy> strategyMock = new();
 
@@ -63,7 +59,7 @@ public class StatusCodeMiddlewareTests
     public async Task InvokeAsync_StrategyAssente_CopiaBufferSuOriginale()
     {
         // Arrange
-        Mock<ILogger<StatusCodeMiddleware>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         Mock<IStatusCodeStrategyRegistry> registryMock = new();
 
         DefaultHttpContext httpContext = new();
@@ -98,7 +94,7 @@ public class StatusCodeMiddlewareTests
     public async Task InvokeAsync_NextLancia_RipristinaOriginalBody()
     {
         // Arrange
-        Mock<ILogger<StatusCodeMiddleware>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         Mock<IStatusCodeStrategyRegistry> registryMock = new();
 
         DefaultHttpContext httpContext = new();

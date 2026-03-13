@@ -1,13 +1,15 @@
 ﻿using MS00000_TemplateApi.Model.Application;
+using MS00000_TemplateApi.Services.Application.Logger;
 using System.Net;
 using System.Text.Json;
 
 namespace MS00000_TemplateApi.Customizations.Middlewares;
+
 public class ExceptionMiddleware : IMiddleware
 {
-    private readonly ILogger<ExceptionMiddleware> logger;
+    private readonly IApplicationLogger logger;
 
-    public ExceptionMiddleware(ILogger<ExceptionMiddleware> logger)
+    public ExceptionMiddleware(IApplicationLogger logger)
     {
         this.logger = logger;
     }
@@ -24,7 +26,6 @@ public class ExceptionMiddleware : IMiddleware
         }
         catch (Exception ex)
         {
-
             string traceId = context.TraceIdentifier;
 
             logger.LogErrorCustom(ex, $"Eccezione non gestita per {context.Request.Path}, con traceId: {traceId}");
@@ -62,6 +63,4 @@ public class ExceptionMiddleware : IMiddleware
             context.Response.Body = originalBody;
         }
     }
-
-
 }

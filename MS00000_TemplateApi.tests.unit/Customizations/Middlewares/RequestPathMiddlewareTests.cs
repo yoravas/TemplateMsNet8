@@ -1,12 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Moq;
 using MS00000_TemplateApi.Customizations.Middlewares;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MS00000_TemplateApi.Services.Application.Logger;
 
 namespace MS00000_TemplateApi.tests.unit.Customizations.Middlewares;
 
@@ -16,7 +11,7 @@ public class RequestPathMiddlewareTests
     public async Task InvokeAsync_UrlCompostaENextChiamato()
     {
         // Arrange
-        Mock<ILogger<RequestPathMiddleware>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         bool nextCalled = false;
 
         RequestDelegate next = new(async ctx =>

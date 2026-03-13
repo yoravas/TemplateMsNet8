@@ -1,0 +1,2 @@
+﻿INSERT  INTO TMP_AdditionalDataLogApi (AdditionalDataLogID, RequestPath, FilePath, AdditionalData, [Exception])
+VALUES                               (@AdditionalDataLogID, @RequestPath, @FilePath, @AdditionalData, @Exception);

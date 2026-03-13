@@ -21,7 +21,7 @@
     "Container (Dockerfile)": {
       "commandName": "Docker",
       "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:32905/swagger",
+      "launchUrl": "{Scheme}://{ServiceHost}:32906/swagger",
       "publishAllPorts": false,
       "environmentVariables": {
         "PSW_SESSION_CACHE_DB": "13212aspNET!",

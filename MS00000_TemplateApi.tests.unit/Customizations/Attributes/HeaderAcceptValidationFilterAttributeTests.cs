@@ -2,23 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
 using Moq;
 using MS00000_TemplateApi.Customizations.Attributes;
-using MS00000_TemplateApi.Customizations.Helpers;
 using MS00000_TemplateApi.Customizations.StatusCodeResults;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using MS00000_TemplateApi.Services.Application.Logger;
 using System.Net.Mime;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MS00000_TemplateApi.tests.unit.Customizations.Attributes;
-
 
 public class HeaderAcceptValidationFilterAttributeTests
 {
@@ -26,7 +17,7 @@ public class HeaderAcceptValidationFilterAttributeTests
     public void OnActionExecuting_AcceptJson_Valid()
     {
         // Arrange
-        Mock<ILogger<HeaderAcceptValidationFilterAttribute>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         HeaderAcceptValidationFilterAttribute filter = new(loggerMock.Object);
 
         DefaultHttpContext context = new();
@@ -52,7 +43,7 @@ public class HeaderAcceptValidationFilterAttributeTests
     public void OnActionExecuting_AcceptNotJson_Returns406()
     {
         // Arrange
-        Mock<ILogger<HeaderAcceptValidationFilterAttribute>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         HeaderAcceptValidationFilterAttribute filter = new(loggerMock.Object);
 
         DefaultHttpContext context = new();
@@ -78,7 +69,7 @@ public class HeaderAcceptValidationFilterAttributeTests
     public void OnActionExecuting_AcceptMissing_AppendDefaultJson()
     {
         // Arrange
-        Mock<ILogger<HeaderAcceptValidationFilterAttribute>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         HeaderAcceptValidationFilterAttribute filter = new(loggerMock.Object);
 
         DefaultHttpContext context = new();
@@ -99,13 +90,12 @@ public class HeaderAcceptValidationFilterAttributeTests
         StringValues v = context.Request.Headers["Accept"];
         Assert.Equal(MediaTypeNames.Application.Json, v.ToString());
     }
-        
 
     [Fact]
     public void OnActionExecuting_TryGetValueFalse_RamoElse()
     {
         // Arrange
-        Mock<ILogger<HeaderAcceptValidationFilterAttribute>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         HeaderAcceptValidationFilterAttribute filter = new(loggerMock.Object);
 
         DefaultHttpContext context = new();
@@ -132,7 +122,7 @@ public class HeaderAcceptValidationFilterAttributeTests
     public void OnActionExecuted_Coperto()
     {
         // Arrange
-        Mock<ILogger<HeaderAcceptValidationFilterAttribute>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         HeaderAcceptValidationFilterAttribute filter = new(loggerMock.Object);
 
         DefaultHttpContext context = new();

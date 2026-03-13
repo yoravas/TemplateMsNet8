@@ -389,3 +389,6 @@ dotnet_diagnostic.GlobalUsingsAnalyzer.severity = silent
 
 # SYSLIB0012: Il tipo o il membro � obsoleto
 dotnet_diagnostic.SYSLIB0012.severity = silent
+
+# Attiva severità errore per CA1050 (Tipi devono essere dentro un namespace)
+dotnet_diagnostic.CA1050.severity = error

@@ -73,8 +73,6 @@ public class Startup(IConfiguration configuration)
                 options.AttemptTimeout.Timeout = TimeSpan.FromSeconds(15);
             });
 
-        //services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
-
         services.AddFlowify(typeof(Program).Assembly);
 
         //Transient
@@ -118,9 +116,9 @@ public class Startup(IConfiguration configuration)
 
         app.ToUseSwaggerUI();
 
-        app.UseRouting();
-
         app.UseSession();
+
+        app.UseRouting();
 
         app.ReadHeaderCorrelationId();
         app.ReadRequestPath();

@@ -1,13 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Moq;
 using MS00000_TemplateApi.Customizations.Middlewares;
 using MS00000_TemplateApi.Services.Application;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MS00000_TemplateApi.Services.Application.Logger;
 
 namespace MS00000_TemplateApi.tests.unit.Customizations.Middlewares;
 
@@ -17,7 +12,7 @@ public class SetColumnCustomToSerilogMiddlewareTests
     public async Task InvokeAsync_PropagaCorrelationIdERequestPath_EseguitoNext()
     {
         // Arrange
-        Mock<ILogger<SetColumnCustomToSerilogMiddleware>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         Mock<ICorrelationIdAccessorService> correlationMock = new();
         Mock<IRequestPathAccessorService> requestPathMock = new();
 

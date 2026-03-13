@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using MS00000_TemplateApi.Model.Application;
 using MS00000_TemplateApi.Model.Application.DTOs;
 using MS00000_TemplateApi.Services.Application.ConfigApp.Queries.ConfigApp.GetAll;
+using MS00000_TemplateApi.Services.Application.Logger;
 
 namespace MS00000_TemplateApi.Controllers.V1;
 
@@ -20,7 +21,7 @@ namespace MS00000_TemplateApi.Controllers.V1;
 [ProducesResponseType(typeof(ApiResponse<ReturnDetails>), StatusCodes.Status502BadGateway)]
 [ProducesResponseType(typeof(ApiResponse<ReturnDetails>), StatusCodes.Status503ServiceUnavailable)]
 [ProducesResponseType(typeof(ApiResponse<ReturnDetails>), StatusCodes.Status406NotAcceptable)]
-public class ConfigAppController(IMediator mediator, ILogger<ConfigAppController> logger) : ApiBaseController
+public class ConfigAppController(IMediator mediator, IApplicationLogger logger) : ApiBaseController
 {
     [HttpGet]
     [ProducesResponseType(typeof(ApiResponse<List<ConfigAppDto>>), StatusCodes.Status200OK)]

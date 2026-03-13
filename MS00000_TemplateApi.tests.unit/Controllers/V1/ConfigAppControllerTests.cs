@@ -1,16 +1,11 @@
 ﻿using Flowify.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Moq;
 using MS00000_TemplateApi.Controllers.V1;
 using MS00000_TemplateApi.Model.Application.DTOs;
 using MS00000_TemplateApi.Services.Application.ConfigApp.Queries.ConfigApp.GetAll;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MS00000_TemplateApi.Services.Application.Logger;
 
 namespace MS00000_TemplateApi.tests.unit.Controllers.V1;
 
@@ -26,7 +21,7 @@ public class ConfigAppControllerTests
             .Setup(x => x.Send(It.IsAny<GetConfigAppAllQuery>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(list);
 
-        Mock<ILogger<ConfigAppController>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         ConfigAppController controller = new(mediatorMock.Object, loggerMock.Object)
         {
             ControllerContext = new ControllerContext()
@@ -52,7 +47,7 @@ public class ConfigAppControllerTests
             .Setup(x => x.Send(It.IsAny<GetConfigAppAllQuery>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(emptyList);
 
-        Mock<ILogger<ConfigAppController>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         ConfigAppController controller = new(mediatorMock.Object, loggerMock.Object)
         {
             ControllerContext = new ControllerContext()

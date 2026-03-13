@@ -1,13 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Moq;
 using MS00000_TemplateApi.Customizations.Consts;
 using MS00000_TemplateApi.Customizations.Middlewares;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MS00000_TemplateApi.Services.Application.Logger;
 
 namespace MS00000_TemplateApi.tests.unit.Customizations.Middlewares;
 
@@ -17,7 +12,7 @@ public class CorrelationIdMiddlewareTests
     public async Task InvokeAsync_HeaderValido_NextChiamato()
     {
         // Arrange
-        Mock<ILogger<CorrelationIdMiddleware>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         bool nextCalled = false;
         RequestDelegate next = new(async ctx => { nextCalled = true; await Task.CompletedTask; });
         DefaultHttpContext httpContext = new();
@@ -36,7 +31,7 @@ public class CorrelationIdMiddlewareTests
     public async Task InvokeAsync_HeaderAssente_NextChiamato()
     {
         // Arrange
-        Mock<ILogger<CorrelationIdMiddleware>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         bool nextCalled = false;
         RequestDelegate next = new(async ctx => { nextCalled = true; await Task.CompletedTask; });
         DefaultHttpContext httpContext = new();
@@ -53,7 +48,7 @@ public class CorrelationIdMiddlewareTests
     public async Task InvokeAsync_HeaderNonValido_NextChiamato()
     {
         // Arrange
-        Mock<ILogger<CorrelationIdMiddleware>> loggerMock = new();
+        Mock<IApplicationLogger> loggerMock = new();
         bool nextCalled = false;
         RequestDelegate next = new(async ctx => { nextCalled = true; await Task.CompletedTask; });
         DefaultHttpContext httpContext = new();
@@ -66,5 +61,4 @@ public class CorrelationIdMiddlewareTests
         // Assert
         Assert.True(nextCalled);
     }
-
 }
