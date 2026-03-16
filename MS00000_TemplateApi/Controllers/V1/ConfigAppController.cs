@@ -29,24 +29,17 @@ public class ConfigAppController(IMediator mediator, IApplicationLogger logger) 
     [Produces("application/json")]
     public async Task<IActionResult> GetConfigAppAsync(CancellationToken cancellationToken)
     {
-        //return StatusCode(406, new ApiResponse<ReturnDetails>(new ReturnDetails()
-        //{
-        //    StatusCode = 406,
-        //    Message = "Not Acceptable: la richiesta non è accettabile.",
-        //    DescStatusCode = "La richiesta non è accettabile. Verifica che l'header 'Accept' sia corretto e supportato dall'endpoint."
-        //}));
-
-        logger.LogInformationCustom("GetConfigAppAsync called");
+        logger.Information("GetConfigAppAsync called");
         List<ConfigAppDto> configList = await mediator.Send(new GetConfigAppAllQuery(), cancellationToken);
 
-        logger.LogDebugCustom($"Lista configurazione recuperata: {configList.Count} items", additionalData: configList);
+        logger.Debug($"Lista configurazione recuperata: {configList.Count} items", additionalData: configList);
         if (configList.Any())
         {
             return Ok(new ApiResponse<List<ConfigAppDto>>(configList));
         }
         else
         {
-            logger.LogInformationCustom("Nessuna configurazione trovata, restituisco NoContent");
+            logger.Information("Nessuna configurazione trovata, restituisco NoContent");
 
             return NoContent();
         }

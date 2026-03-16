@@ -14,14 +14,14 @@ public class MediaTypeResorceFilterAttribute(IApplicationLogger logger) : IResou
 
     public void OnResourceExecuting(ResourceExecutingContext context)
     {
-        logger.LogInformationCustom("Inizio esecuzione del metodo per la validazione del media type.");
+        logger.Information("Inizio esecuzione del metodo per la validazione del media type.");
 
         string message = string.Empty;
 
         if (string.IsNullOrEmpty(context.HttpContext.Request.ContentType))
         {
             message = "Non risulta inserito il media type json.";
-            logger.LogWarningCustom(message);
+            logger.Warning(message);
 
             context.Result = new UnsupportedMediaTypeObjectResult(new ApiResponse<ReturnDetails>(new ReturnDetails
             {
@@ -33,7 +33,7 @@ public class MediaTypeResorceFilterAttribute(IApplicationLogger logger) : IResou
 
         if (!string.Equals(MediaTypeHeaderValue.Parse(context.HttpContext.Request.ContentType).MediaType, MediaTypeNames.Application.Json, StringComparison.OrdinalIgnoreCase))
         {
-            logger.LogWarningCustom("Media type non supportato.");
+            logger.Warning("Media type non supportato.");
 
             context.Result = new UnsupportedMediaTypeObjectResult(new ApiResponse<ReturnDetails>(new ReturnDetails
             {
@@ -42,6 +42,6 @@ public class MediaTypeResorceFilterAttribute(IApplicationLogger logger) : IResou
             }));
         }
 
-        logger.LogInformationCustom("Fine esecuzione del metodo per la validazione del media type.");
+        logger.Information("Fine esecuzione del metodo per la validazione del media type.");
     }
 }

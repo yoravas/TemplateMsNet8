@@ -16,7 +16,7 @@ public class RequestPathMiddleware : IMiddleware
     {
         HttpRequest req = context.Request;
         string fullUrl = $"{req.Scheme}://{req.Host}{req.Path}{req.QueryString}";
-        logger.LogDebugCustom($"URL completo della richiesta: {fullUrl}", additionalData: fullUrl);
+        logger.Debug($"URL completo della richiesta: {fullUrl}", additionalData: fullUrl);
         context.Items[ContextItems.RequestUrl] = fullUrl;
 
         await next(context);

@@ -32,7 +32,7 @@ public class StatusCodeMiddleware : IMiddleware
 
             if (await BodyContainsApiResponseReturnDetailsAsync(buffer, context.RequestAborted))
             {
-                logger.LogWarningCustom("Body già valorizzato con ApiResponse<ReturnDetails>, bypasso l'intercettazione degli status code.");
+                logger.Warning("Body già valorizzato con ApiResponse<ReturnDetails>, bypasso l'intercettazione degli status code.");
                 await CopyBufferToOriginalAsync(context, originalBody, buffer);
                 return;
             }
@@ -40,11 +40,11 @@ public class StatusCodeMiddleware : IMiddleware
             if (!context.Response.HasStarted &&
                 registry.TryGet(context.Response.StatusCode, out IStatusCodeStrategy? strategy))
             {
-                logger.LogWarningCustom($"Status code gestito {context.Response.StatusCode} con la strategy {strategy.GetType().Name}");
+                logger.Warning($"Status code gestito {context.Response.StatusCode} con la strategy {strategy.GetType().Name}");
                 await strategy.HandleAsync(context, originalBody, buffer, context.RequestAborted);
                 return; // evita la copia del buffer originale
             }
-            logger.LogWarningCustom($"Nessuna strategy trovata per lo status code {context.Response.StatusCode}, inviata la response orginale.");
+            logger.Warning($"Nessuna strategy trovata per lo status code {context.Response.StatusCode}, inviata la response orginale.");
             // Caso standard: manda al client quello che è stato scritto nel buffer
             await CopyBufferToOriginalAsync(context, originalBody, buffer);
         }
@@ -84,7 +84,7 @@ public class StatusCodeMiddleware : IMiddleware
         }
         catch (Exception ex)
         {
-            logger.LogErrorCustom(ex, ex.Message, additionalData: apiResponse);
+            logger.Error(ex, ex.Message, additionalData: apiResponse);
             return false;
         }
     }

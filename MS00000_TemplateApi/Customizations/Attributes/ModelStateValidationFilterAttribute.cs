@@ -16,11 +16,11 @@ public class ModelStateValidationFilterAttribute(IApplicationLogger logger) : IA
         {
             string msg = $"Il modello dati non è valido.";
 
-            logger.LogWarningCustom(msg, context.ModelState.SerializeErrors());
+            logger.Warning(msg, context.ModelState.SerializeErrors());
 
             context.Result = new UnprocessableEntityObjectResult(new ApiResponse<Dictionary<string, object>>(context.ModelState.SerializeErrors()));
         }
 
-        logger.LogInformationCustom("Il modello dati è valido.");
+        logger.Information("Il modello dati è valido.");
     }
 }

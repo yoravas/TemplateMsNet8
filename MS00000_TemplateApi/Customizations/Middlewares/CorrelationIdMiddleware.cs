@@ -18,14 +18,14 @@ public class CorrelationIdMiddleware : IMiddleware
             ? context.Request.Headers[HeadersCustom.HeaderCorrelationID].ToString()
             : string.Empty;
 
-        logger.LogDebugCustom($"Correlation ID prelevato dall'header: {correlationId}", additionalData: correlationId);
+        logger.Debug($"Correlation ID prelevato dall'header: {correlationId}", additionalData: correlationId);
 
         if (!Ulid.TryParse(correlationId, out _))
         {
             correlationId = Ulid.NewUlid().ToString();
         }
 
-        logger.LogDebugCustom($"Correlation ID utilizzato per la richiesta: {correlationId}", additionalData: correlationId);
+        logger.Debug($"Correlation ID utilizzato per la richiesta: {correlationId}", additionalData: correlationId);
 
         context.Items[ContextItems.CorrelationID] = correlationId;
 

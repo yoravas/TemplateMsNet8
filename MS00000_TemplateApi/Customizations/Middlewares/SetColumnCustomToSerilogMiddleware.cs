@@ -29,11 +29,11 @@ public class SetColumnCustomToSerilogMiddleware : IMiddleware
 
         string correlationId = correlationIdAccessorService.CorrelationId;
 
-        logger.LogDebugCustom($"CorrelationId: {correlationId}");
+        logger.Debug($"CorrelationId: {correlationId}");
 
         string requestPath = requestPathAccessorService.RequestPath;
 
-        logger.LogDebugCustom($"RequestPath: {requestPath}");
+        logger.Debug($"RequestPath: {requestPath}");
 
         //using (LogContext.PushProperty(SerilogColumCustom.TraceId, traceId))
         //using (LogContext.PushProperty(SerilogColumCustom.SpanId, spanId))

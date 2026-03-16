@@ -25,7 +25,7 @@ public class RemoveInsecureHeadersMiddleware : IMiddleware
             context.Response.Headers.Append("X-Content-Type-Options", new StringValues("nosniff"));
             //context.Response.Headers.Append("X-Frame-Options", new StringValues("DENY"));
 
-            logger.LogInformationCustom("Intestazioni di sicurezza aggiunte alla risposta HTTP.");
+            logger.Information("Intestazioni di sicurezza aggiunte alla risposta HTTP.");
 
             return Task.CompletedTask;
         }, context);

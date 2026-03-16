@@ -30,7 +30,7 @@ public class ApplicationLogger : IApplicationLogger
         this.httpContextAccessor = httpContextAccessor;
     }
 
-    public void LogDebugCustom(string message, object? additionalData = null, [CallerMemberName] string metodo = "", [CallerFilePath] string filePath = "", [CallerLineNumber] int linea = 0)
+    public void Debug(string message, object? additionalData = null, [CallerMemberName] string metodo = "", [CallerFilePath] string filePath = "", [CallerLineNumber] int linea = 0)
     {
         using (PushCustomFieldsAsync(metodo, filePath, linea, additionalData))
         {
@@ -38,7 +38,7 @@ public class ApplicationLogger : IApplicationLogger
         }
     }
 
-    public void LogErrorCustom(Exception ex, string message, object? additionalData = null, [CallerMemberName] string metodo = "", [CallerFilePath] string filePath = "", [CallerLineNumber] int linea = 0)
+    public void Error(Exception ex, string message, object? additionalData = null, [CallerMemberName] string metodo = "", [CallerFilePath] string filePath = "", [CallerLineNumber] int linea = 0)
     {
         using (PushCustomFieldsAsync(metodo, filePath, linea, additionalData, ex))
         {
@@ -46,7 +46,7 @@ public class ApplicationLogger : IApplicationLogger
         }
     }
 
-    public void LogInformationCustom(string message, [CallerMemberName] string metodo = "", [CallerFilePath] string filePath = "", [CallerLineNumber] int linea = 0)
+    public void Information(string message, [CallerMemberName] string metodo = "", [CallerFilePath] string filePath = "", [CallerLineNumber] int linea = 0)
     {
         using (PushCustomFieldsAsync(metodo, filePath, linea))
         {
@@ -54,7 +54,7 @@ public class ApplicationLogger : IApplicationLogger
         }
     }
 
-    public void LogWarningCustom(string message, object? additionalData = null, [CallerMemberName] string metodo = "", [CallerFilePath] string filePath = "", [CallerLineNumber] int linea = 0)
+    public void Warning(string message, object? additionalData = null, [CallerMemberName] string metodo = "", [CallerFilePath] string filePath = "", [CallerLineNumber] int linea = 0)
     {
         using (PushCustomFieldsAsync(metodo, filePath, linea, additionalData))
         {

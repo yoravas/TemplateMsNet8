@@ -28,7 +28,7 @@ public class ExceptionMiddleware : IMiddleware
         {
             string traceId = context.TraceIdentifier;
 
-            logger.LogErrorCustom(ex, $"Eccezione non gestita per {context.Request.Path}, con traceId: {traceId}");
+            logger.Error(ex, $"Eccezione non gestita per {context.Request.Path}, con traceId: {traceId}");
             ApiResponse<ReturnDetails> payload;
 
             if (!context.Response.HasStarted)

@@ -27,7 +27,7 @@ public class GetConfigAppAllQueryHandler : IRequestHandler<GetConfigAppAllQuery,
 
         string jsonResult = JsonSerializer.Serialize(result);
 
-        logger.LogDebugCustom($"GetConfigAppAllQueryHandler {jsonResult}", additionalData: result);
+        logger.Debug($"GetConfigAppAllQueryHandler {jsonResult}", additionalData: result);
 
         return result.ToList();
     }

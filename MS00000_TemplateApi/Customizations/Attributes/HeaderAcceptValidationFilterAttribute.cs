@@ -19,7 +19,7 @@ public class HeaderAcceptValidationFilterAttribute(IApplicationLogger logger) : 
 
         string msg = $"Inizio verifica header accept, end point: {endPoint}";
 
-        logger.LogInformationCustom(msg);
+        logger.Information(msg);
 
         if (!context.HttpContext.Request.Headers.IsReadOnly)
         {
@@ -27,7 +27,7 @@ public class HeaderAcceptValidationFilterAttribute(IApplicationLogger logger) : 
             {
                 if (accept.ToString().Equals(MediaTypeNames.Application.Json, StringComparison.OrdinalIgnoreCase))
                 {
-                    logger.LogInformationCustom($"Header accept verificato correttamente: {accept}");
+                    logger.Information($"Header accept verificato correttamente: {accept}");
                 }
                 else
                 {
@@ -38,13 +38,13 @@ public class HeaderAcceptValidationFilterAttribute(IApplicationLogger logger) : 
                         DescStatusCode = nameof(StatusCodes.Status406NotAcceptable)
                     }));
 
-                    logger.LogWarningCustom($"Il media type ricevuto non è tra i tipi accettati: {accept}. End point: {endPoint}");
+                    logger.Warning($"Il media type ricevuto non è tra i tipi accettati: {accept}. End point: {endPoint}");
                 }
             }
             else
             {
                 string msg2 = $"Il media type non è presente pertanto viene forzato come default: {MediaTypeNames.Application.Json}. End point: {endPoint}";
-                logger.LogInformationCustom(msg2);
+                logger.Information(msg2);
                 context.HttpContext.Request.Headers.Append(nameof(Headers.Accept), MediaTypeNames.Application.Json);
             }
         }
