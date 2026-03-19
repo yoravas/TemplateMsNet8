@@ -2,6 +2,7 @@
 using System.Data;
 
 namespace MS00000_TemplateApi.Services.Infrastracture.Data.SqlServer.Database;
+
 public class UnitOfWorkDbAppMs : IUnitOfWork
 {
     public IDbConnection Connection { get; }
@@ -30,11 +31,23 @@ public class UnitOfWorkDbAppMs : IUnitOfWork
 
     public void Dispose()
     {
-        if (disposed)
-            return;
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
 
-        Transaction?.Dispose();
-        Connection?.Dispose();
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposed)
+        {
+            return;
+        }
+
+        if (disposing)
+        {
+            Transaction?.Dispose();
+            Connection?.Dispose();
+        }
+
         disposed = true;
     }
 }

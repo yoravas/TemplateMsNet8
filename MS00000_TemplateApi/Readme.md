@@ -60,14 +60,22 @@ go
 ALTER TABLE [TMP_ConfigApp] ADD CONSTRAINT [PK_TMP_ConfigApp] PRIMARY KEY ([ConfigAppID])
 go
 
+CREATE SEQUENCE [dbo].[TMP_SeqLogApi] AS bigint
+ START WITH 1
+ INCREMENT BY 1
+ NO MINVALUE
+ NO MAXVALUE
+go
+
 Come potete vedere, le tabelle sono progettate per memorizzare i log delle API e le configurazioni
 dell'applicazione. 
 La tabella `TMP_ApiLog` è utilizzata per registrare i dettagli delle richieste API,
 inclusi timestamp, livello di log, messaggi, eccezioni e altre informazioni correlate. 
 La tabella `TMP_AdditionalDataLogApi` è destinata a memorizzare dati aggiuntivi relativi ai log delle API, 
-come il percorso della richiesta e eventuali eccezioni. 
-Infine, la tabella `TMP_ConfigApp` viene utilizzata per gestire le configurazioni dell'applicazione, 
+come il percorso della richiesta ed eventuali eccezioni. 
+La tabella `TMP_ConfigApp` viene utilizzata per gestire le configurazioni dell'applicazione, 
 indicando se una determinata funzione è attivata o meno.
+Infine, la sequenza `TMP_SeqLogApi` è utilizzata per generare valori unici per i log delle API; nello specifico per i campi `ApiSerilogID` della tabella `TMP_ApiLog` ed il campo `AdditionalDataLogID` della tabella `TMP_AdditionalDataLogApi`.
 
 L'acronimo iniziale delle tabelle "TMP" suggerisce che l'acronimo dovrà essere sostituito con l'acronimo appropriato al database di destinazione.
 Si rammenta che le connessioni presenti all'interno del file appsettings.json vanno sostiutite con le stringhe di connessione del database di destinazione.

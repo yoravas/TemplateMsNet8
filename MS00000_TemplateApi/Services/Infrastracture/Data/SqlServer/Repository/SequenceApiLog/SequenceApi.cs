@@ -8,7 +8,7 @@ public class SequenceApi : RepositoryBase, ISequenceApi
     private readonly IDapperExecutor dapperExecutor;
     private readonly ISqlQueryLoader sqlQueryLoader;
 
-    public SequenceApi([FromKeyedServices(DbConnectionRepository.DBAppMicorservizio)] IDBConnectionFactory factory, IDapperExecutor dapperExecutor, ISqlQueryLoader sqlQueryLoader) : base(factory)
+    public SequenceApi([FromKeyedServices(DbConnectionRepository.DBLog)] IDBConnectionFactory factory, IDapperExecutor dapperExecutor, ISqlQueryLoader sqlQueryLoader) : base(factory)
     {
         this.dapperExecutor = dapperExecutor;
         this.sqlQueryLoader = sqlQueryLoader;

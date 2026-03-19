@@ -1,7 +1,7 @@
 ﻿using Flowify.Contracts;
 using Moq;
 using MS00000_TemplateApi.Model.Application.DTOs;
-using MS00000_TemplateApi.Services.Application.ConfigApp.Queries.ConfigApp.GetAll;
+using MS00000_TemplateApi.Services.Application.MediatR.Queries.ConfigApp.GetAll;
 using MS00000_TemplateApi.Services.Application.Logger;
 using MS00000_TemplateApi.Services.Infrastracture.Data.SqlServer.Repository.ConfigApp;
 

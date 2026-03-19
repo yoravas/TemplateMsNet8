@@ -4,7 +4,7 @@ using MS00000_TemplateApi.Services.Application.Logger;
 using MS00000_TemplateApi.Services.Infrastracture.Data.SqlServer.Repository.ConfigApp;
 using System.Text.Json;
 
-namespace MS00000_TemplateApi.Services.Application.ConfigApp.Queries.ConfigApp.GetAll;
+namespace MS00000_TemplateApi.Services.Application.MediatR.Queries.ConfigApp.GetAll;
 
 public class GetConfigAppAllQueryHandler : IRequestHandler<GetConfigAppAllQuery, List<ConfigAppDto>>
 {
