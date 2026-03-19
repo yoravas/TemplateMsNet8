@@ -40,6 +40,6 @@ public static class GroupScopedExtension
     private static void AddKeyedScoped(IServiceCollection services)
     {
         services.AddKeyedScoped<IDBConnectionFactory, SqlServerConnectionDbAppMsFactory>(DbConnectionRepository.DBAppMicorservizio);
-        services.AddKeyedScoped<IDBConnectionFactory, SqlServerConnectionDbAppMsFactory>(DbConnectionRepository.DBLog);
+        services.AddKeyedScoped<IDBConnectionFactory, SqlServerConnectionDbLogFactory>(DbConnectionRepository.DBLog);
     }
 }

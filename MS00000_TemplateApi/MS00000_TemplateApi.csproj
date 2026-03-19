@@ -9,7 +9,7 @@
 		<RootNamespace>MS00000_TemplateApi</RootNamespace>
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
 		<DockerfileContext>.</DockerfileContext>
-		<DockerfileRunArguments>-p 32906:8080 </DockerfileRunArguments>
+		<DockerfileRunArguments>-p 32907:8080 </DockerfileRunArguments>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
