@@ -60,6 +60,11 @@ go
 ALTER TABLE [TMP_ConfigApp] ADD CONSTRAINT [PK_TMP_ConfigApp] PRIMARY KEY ([ConfigAppID])
 go
 
+INSERT INTO DbTemplate.dbo.TMP_ConfigApp
+(ConfigAppID, Funzione, Attivata)
+VALUES(1, 'All', 1);
+GO
+
 CREATE SEQUENCE [dbo].[TMP_SeqLogApi] AS bigint
  START WITH 1
  INCREMENT BY 1
@@ -75,7 +80,7 @@ La tabella `TMP_AdditionalDataLogApi` è destinata a memorizzare dati aggiuntivi
 come il percorso della richiesta ed eventuali eccezioni. 
 La tabella `TMP_ConfigApp` viene utilizzata per gestire le configurazioni dell'applicazione, 
 indicando se una determinata funzione è attivata o meno.
-Infine, la sequenza `TMP_SeqLogApi` è utilizzata per generare valori unici per i log delle API; nello specifico per i campi `ApiSerilogID` della tabella `TMP_ApiLog` ed il campo `AdditionalDataLogID` della tabella `TMP_AdditionalDataLogApi`.
+Infine, la sequence `TMP_SeqLogApi` è utilizzata per generare valori unici per i log delle API; nello specifico per i campi `ApiSerilogID` della tabella `TMP_ApiLog` ed il campo `AdditionalDataLogID` della tabella `TMP_AdditionalDataLogApi`.
 
 L'acronimo iniziale delle tabelle "TMP" suggerisce che l'acronimo dovrà essere sostituito con l'acronimo appropriato al database di destinazione.
 Si rammenta che le connessioni presenti all'interno del file appsettings.json vanno sostiutite con le stringhe di connessione del database di destinazione.
@@ -102,4 +107,4 @@ Questo va fatto inserendo variabili ambiente all'interno del laucher Container (
 Aggiungere ulteriori variabili ambiente all'interno del laucher Container (Dockerfile) se si dovessero aggiungere nuove stringhe di connessione all'interno del file appsettings.json.
 Si ricorda però che si dovrà gestire il codice all'interno della classe PlaceholdersConfig per leggere le nuove variabili ambiente e sostituire i placeholder presenti nelle stringhe di connessione con i valori reali.
 Vedere la classe PlaceholdersConfig per maggiori dettagli su come gestire i placeholder e le variabili ambiente.
-Nello specifico sarà necessario adattare con il metodo privato "SetPswDb".
+Nello specifico sarà necessario adattare il metodo privato "SetPswDb".
