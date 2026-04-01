@@ -1,12 +1,15 @@
 ﻿using System.Reflection;
 
 namespace MS00000_TemplateApi.Services.Infrastracture.Data;
+
 public static class SqlLoader
 {
     public static string Load(string resourcePath)
     {
         Assembly assembly = Assembly.GetExecutingAssembly();
-        string fullName = assembly.GetManifestResourceNames().First(x => x.EndsWith(resourcePath.Replace("/", ".")));
+        string resourceReplace = resourcePath.Replace("/", ".");
+
+        string fullName = assembly.GetManifestResourceNames().First(x => x.EndsWith(resourceReplace));
 
         using Stream stream = assembly.GetManifestResourceStream(fullName) ??
             throw new InvalidOperationException($"SQL resource not found: {resourcePath}");

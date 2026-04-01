@@ -20,6 +20,8 @@
 	<ItemGroup>
 
 		<None Remove="Services\Infrastracture\Data\SqlServer\Queries\ConfigApp\SelectAll.sql" />
+
+		<None Remove="Services\Infrastracture\Data\SqlServer\Queries\SequenceApiLog\SelectNextValue.sql" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -29,6 +31,8 @@
 		</EmbeddedResource>
 
 		<EmbeddedResource Include="Services\Infrastracture\Data\SqlServer\Queries\ConfigApp\SelectAll.sql" />
+
+		<EmbeddedResource Include="Services\Infrastracture\Data\SqlServer\Queries\SequenceApiLog\SelectNextValue.sql" />
 	</ItemGroup>
 
 	<ItemGroup>
